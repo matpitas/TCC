@@ -1,0 +1,56 @@
+a{
+    text-decoration: none;
+    color: #D6D6D6;
+}
+
+.logoImagem {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.logoTexto {
+    width: 6rem;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.logo img:first-child{
+    margin-right: 1rem;
+}
+
+.menu{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.15rem;
+    letter-spacing: -2.5%;
+}
+
+.menu{
+    padding: 1rem;
+}
+
+.entrar{
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    font-size: 1.15rem;
+    letter-spacing: -2.5%;
+    font-weight: bold;
+}
+
+.entrar a{
+    color: #E58D3B;
+}
