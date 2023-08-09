@@ -10,4 +10,22 @@
 
 html{
     background-color: #252525;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+  
+::-webkit-scrollbar-track {
+    background: #252525;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #e58d38;
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #7e4916;
 }

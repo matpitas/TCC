@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Navbar.module.css'
+
 import LogoImagem from '../../assets/LogoImage.png'
 import LogoTexto from '../../assets/LogoText.png'
 
@@ -16,9 +17,9 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div className={styles.menu}>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/sobre">Sobre</NavLink>
-          <NavLink to="/contato">Contato</NavLink>
+          <NavLink to="/" className={(({isActive}) => (isActive ? styles.active : ''))}>Home</NavLink>
+          <NavLink to="/sobre" className={(({isActive}) => (isActive ? styles.active : ''))}>Sobre</NavLink>
+          <NavLink to="/contato" className={(({isActive}) => (isActive ? styles.active : ''))}>Contato</NavLink>
         </div>
         <div className={styles.entrar}>
           <NavLink to="/entrar">Entrar</NavLink>

@@ -1,0 +1,41 @@
+.card {
+    width: 100%;
+    height: 21rem;
+    background-color: #333333 ;
+    border-radius: 15px;
+    display: grid;
+    grid-template-rows: 35% 15% 30% 35%;
+    place-items: center;
+}
+
+.icone{
+    font-size: 2.5rem;
+    width: 5.625rem;
+    height: 5.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #533C27;
+    color: #e58d3b;
+}
+
+.titulo{
+    font-size: 2rem;
+    font-weight: 400;
+    color: #d6d6d6;
+}
+
+.descricao{
+    color: #848484;
+    display: flex;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.125rem;
+    width: 70%;
+}
+
+.logo img{
+    width: 3.125rem;
+    height: 3.125rem;
+}

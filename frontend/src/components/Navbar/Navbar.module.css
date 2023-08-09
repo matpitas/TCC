@@ -4,12 +4,12 @@ a{
 }
 
 .logoImagem {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3rem;
+    height: 3rem;
 }
 
 .logoTexto {
-    width: 6rem;
+    width: 5rem;
 }
 
 .navbar{
@@ -34,23 +34,33 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 1.15rem;
+    font-size: 1rem;
     letter-spacing: -2.5%;
 }
 
-.menu{
-    padding: 1rem;
+.menu a{
+    transition: all .4s ease;
 }
+
+.menu a:hover{
+    color: #bdb8ea;
+}
+
 
 .entrar{
     display: flex;
     align-items: center;
     margin-right: 2rem;
-    font-size: 1.15rem;
+    font-size: 1rem;
     letter-spacing: -2.5%;
     font-weight: bold;
 }
 
 .entrar a{
     color: #E58D3B;
+}
+
+.active{
+    color: #9085d4;
+    font-weight: 700;
 }

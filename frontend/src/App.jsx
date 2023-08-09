@@ -8,6 +8,8 @@ import Contato from './pages/Contato/Contato'
 
 
 import Navbar from './components/Navbar/Navbar'
+import Entrar from './pages/Entrar/Entrar'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
@@ -20,7 +22,9 @@ function App() {
             <Route path="/" element={<Home />}/>
             <Route path="/sobre" element={<Sobre />}/>
             <Route path="/contato" element={<Contato />}/>
+            <Route path="/entrar" element={<Entrar />}/>
           </Routes>
+          <Footer />
         </BrowserRouter>
     </div>
   )

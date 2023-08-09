@@ -1,0 +1,36 @@
+.ContactCard{
+    background-color: #323232;
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    padding: .5rem;
+    border-radius: 5px;
+}
+
+.iconeContactCard{
+    width: 6rem;
+    height: 4rem;
+    border-radius: 5px;
+    background: linear-gradient(20deg, #bc6b1e 0%, #5945d7 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.bodyContactCard{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.bodyContactCard h4{
+    color: #b6b6b6;
+    font-size: 1.2rem;
+}
+
+.bodyContactCard p{
+    color: #8a8a8a;
+    font-size: .8rem;
+}
