@@ -5,6 +5,7 @@
     height: 5rem;
     padding: .5rem;
     border-radius: 5px;
+    box-shadow: 6px 10px 250px 0px rgba(255, 255, 255, 0.06);
 }
 
 .iconeContactCard{
@@ -28,6 +29,10 @@
 .bodyContactCard h4{
     color: #b6b6b6;
     font-size: 1.2rem;
+    background: linear-gradient(360deg, #E58D3B 0%, #6955E4 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .bodyContactCard p{

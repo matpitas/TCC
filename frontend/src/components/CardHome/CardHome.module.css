@@ -6,6 +6,8 @@
     display: grid;
     grid-template-rows: 35% 15% 30% 35%;
     place-items: center;
+    
+    box-shadow: -7px 11px 11px 0px rgba(0, 0, 0, 0.28);
 }
 
 .icone{

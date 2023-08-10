@@ -21,7 +21,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/sobre" element={<Sobre />}/>
-            <Route path="/contato" element={<Contato />}/>
             <Route path="/entrar" element={<Entrar />}/>
           </Routes>
           <Footer />

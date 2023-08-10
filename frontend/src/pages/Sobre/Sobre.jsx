@@ -1,9 +1,13 @@
 import React from 'react'
 import styles from './Sobre.module.css'
+import SobreImage from '../../assets/about.png'
+
 
 const Sobre = () => {
   return (
-    <div>Sobre</div>
+    <div className={styles.sobre}>
+      <img src={SobreImage} className={styles.SobreImagem} alt="" />
+    </div>
   )
 }
 

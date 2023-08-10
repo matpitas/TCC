@@ -33,7 +33,7 @@ a{
     width: 20%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     font-size: 1rem;
     letter-spacing: -2.5%;
 }

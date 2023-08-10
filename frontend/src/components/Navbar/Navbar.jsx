@@ -19,7 +19,6 @@ const Navbar = () => {
         <div className={styles.menu}>
           <NavLink to="/" className={(({isActive}) => (isActive ? styles.active : ''))}>Home</NavLink>
           <NavLink to="/sobre" className={(({isActive}) => (isActive ? styles.active : ''))}>Sobre</NavLink>
-          <NavLink to="/contato" className={(({isActive}) => (isActive ? styles.active : ''))}>Contato</NavLink>
         </div>
         <div className={styles.entrar}>
           <NavLink to="/entrar">Entrar</NavLink>
