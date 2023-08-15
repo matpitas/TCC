@@ -27,7 +27,7 @@ const Footer = () => {
             </div>
         </div>
         <div className={styles.signFooter}>
-            <p>Projeto desenvolvido por Matheus Pitas Baptista</p>
+            <p>Feito com ♡ por Matheus Pitas Baptista</p>
         </div>
     </div>
   )
