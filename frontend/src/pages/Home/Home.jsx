@@ -17,8 +17,8 @@ const Home = () => {
       <div className={styles.principal}>
         <div className={styles.conteudoTexto}>
           <div className={styles.textoPrincipal}>
-            <p>Uma aplicação colaborativa de anotação e compromissos.</p>
-            <h1>Controle seus compromissos e eventos.</h1>
+            <p>Uma aplicação para gerenciamento de agenda de jogos com seus amigos</p>
+            <h1>Controle horários de jogos com seus amigos!</h1>
           </div>
           <button>Disponível já!</button>
         </div>

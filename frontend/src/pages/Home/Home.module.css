@@ -9,14 +9,15 @@
 .conteudoTexto{
     width: 100%;
     display: grid;
-    grid-template-rows: 90% 10%;
+    grid-template-rows: 70% 10%;
     padding-left: 10%;
+    gap: 20px;
 }
 
 .textoPrincipal{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
     width: 100%;
 }
 
@@ -28,7 +29,8 @@
 
 .textoPrincipal h1{
     font-size: 7rem;
-    font-weight: 400;
+    font-weight: 600;
+    letter-spacing: -4px;
     color: #D6D6D6;
 }
 
