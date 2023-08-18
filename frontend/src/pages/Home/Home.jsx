@@ -10,6 +10,7 @@ import CardHome from '../../components/CardHome/CardHome'
 
 import { AiOutlineThunderbolt, AiOutlineFieldTime } from 'react-icons/ai'
 import { MdOutlineMoneyOffCsred } from 'react-icons/md'
+import Avatar from '../../components/Avatar/Avatar'
 
 const Home = () => {
   return (

@@ -43,3 +43,18 @@
     text-align: center;
     padding: 1rem;
 }
+
+@media screen and (max-width:750px) {
+
+    .mainFooter{
+        height: 22rem;
+    }
+
+    .cardsFooter{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 95%;
+        gap: 1rem;
+    }
+}

@@ -38,4 +38,16 @@
 .bodyContactCard p{
     color: #8a8a8a;
     font-size: .8rem;
+    word-wrap: break-word;
+}
+
+
+
+@media screen and (max-width: 950px) {
+
+        .iconeContactCard{
+            width: 2rem;
+            height: 2rem;
+            background: transparent;
+        }
 }

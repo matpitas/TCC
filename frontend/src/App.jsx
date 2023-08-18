@@ -9,6 +9,9 @@ import Sobre from './pages/Sobre/Sobre'
 import Navbar from './components/Navbar/Navbar'
 import Entrar from './pages/Entrar/Entrar'
 import Footer from './components/Footer/Footer'
+import Notificacoes from './pages/Notificacoes/Notificacoes'
+import Amigos from './pages/Amigos/Amigos'
+import Painel from './pages/Painel/Painel'
 
 function App() {
 
@@ -21,6 +24,9 @@ function App() {
             <Route path="/" element={<Home />}/>
             <Route path="/sobre" element={<Sobre />}/>
             <Route path="/entrar" element={<Entrar />}/>
+            <Route path="/notificacoes" element={<Notificacoes />}/>
+            <Route path="/amigos" element={<Amigos />}/>
+            <Route path="/painel" element={<Painel />}/>
           </Routes>
           <Footer />
         </BrowserRouter>
