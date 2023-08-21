@@ -1,30 +1,22 @@
-.caixaEntrar{
-    display: flex;
-    width: 100%;
+
+h1{
+    font-size: 3rem;
+    color: white;
+    padding: 1rem;
+    margin-top: 3rem;
+}
+
+.caixaCadastro{
     height: 100vh;
-}
-
-.caixaImagem{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-}
-
-.caixaImagem img{
-    width: 68%;
-    height: 90%;
-}
-
-.caixaForm{
+    width: 80%;
+    margin-left: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40%;
 }
 
-.entrar{
+.cadastro{
     width: 100%;
     margin-top: 4rem;
     padding: 1rem;
@@ -38,12 +30,14 @@
     cursor: pointer;
 }
 
-.entrar:hover{
+.cadastro:hover{
     background-color: #CFC7FF;
     color: #6955E4;
 }   
 
-.cadastro{
+
+
+.entrar{
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -59,18 +53,24 @@
     text-align: center;
 }
 
-.cadastro:hover{
+.entrar:hover{
     background-color: #E58D3B;
     color: #37220E;
 }
 
-@media (250px <= width <= 850px) {
-    .caixaImagem{
-        display: none;
-    }
 
-    .caixaForm{
-        width: 80%;
-        margin-left: 10%;
+.passwordGrid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 47.5% 47.5%;
+    gap: 5%;
+}
+
+
+
+@media (250px <= width <= 850px) {
+    .passwordGrid{
+        display: flex;
+        flex-direction: column;
     }
 }

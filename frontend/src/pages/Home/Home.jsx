@@ -21,7 +21,7 @@ const Home = () => {
             <p>Uma aplicação para gerenciamento de agenda de jogos com seus amigos</p>
             <h1>Controle horários de jogos com seus amigos!</h1>
           </div>
-          <button>Disponível já!</button>
+          <button className={styles.buttonHome}>Disponível já!</button>
         </div>
         <div className={styles.conteudoImagem}>
           <img src={Capa} alt="" />

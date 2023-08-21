@@ -10,6 +10,7 @@ import { HiHome } from 'react-icons/hi'
 import { BsBookHalf, BsPersonFillAdd } from 'react-icons/bs'
 import { IoIosNotifications } from 'react-icons/io'
 
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
   return (
@@ -21,14 +22,20 @@ const Navbar = () => {
               </NavLink>
             </div>
             <div className={styles.menu}>
-              <NavLink to="/" className={(({isActive}) => (isActive ? styles.active : ''))}> <HiHome/> </NavLink>
-              <NavLink to="/sobre" className={(({isActive}) => (isActive ? styles.active : ''))}> <BsBookHalf /></NavLink>
-              <NavLink to="/amigos" className={(({isActive}) => (isActive ? styles.active : ''))}> <BsPersonFillAdd/> </NavLink>
-              <NavLink to="/notificacoes" className={(({isActive}) => (isActive ? styles.active : ''))}> <IoIosNotifications/> </NavLink>
+              <NavLink data-tooltip-id="Home" data-tooltip-content="Home" to="/"  className={(({isActive}) => (isActive ? styles.active : ''))}> <HiHome/> </NavLink>
+              <NavLink data-tooltip-id="Sobre" data-tooltip-content="Sobre" to="/sobre" className={(({isActive}) => (isActive ? styles.active : ''))}> <BsBookHalf /></NavLink>
+              {/* <NavLink data-tooltip-id="AdicionarAmigos" data-tooltip-content="Adicionar Amigos" to="/amigos" className={(({isActive}) => (isActive ? styles.active : ''))}> <BsPersonFillAdd/> </NavLink> */}
+              {/* <NavLink data-tooltip-id="Notificacoes" data-tooltip-content="Notificações" to="/notificacoes" className={(({isActive}) => (isActive ? styles.active : ''))}> <IoIosNotifications/> </NavLink> */}
             </div>
             <div className={styles.entrar}>
               <NavLink to="/entrar">Entrar</NavLink>
             </div>
+
+            <Tooltip id="Home" />
+            <Tooltip id="Sobre" />
+            <Tooltip id="Notificacoes" />
+            <Tooltip id="AdicionarAmigos" />
+
         </div>
   )
 }
