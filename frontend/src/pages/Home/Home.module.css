@@ -48,6 +48,9 @@
     font-weight: 700;
     color: #D6D6D6;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cards{

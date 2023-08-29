@@ -69,6 +69,10 @@ h1{
 
 
 @media (250px <= width <= 850px) {
+    .caixaCadastro{
+        height: 150vh;
+    }
+
     .passwordGrid{
         display: flex;
         flex-direction: column;

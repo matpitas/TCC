@@ -7,8 +7,11 @@
 
 .input{
     padding: 1rem;
-    font-size: 1.25rem;
+    color: #3a2c95;
+    font-weight: bold;
+    font-size: 1.75rem;
     outline: none;
+    background-color: #e9e7f6;
     border-radius: 7px;
 }
 

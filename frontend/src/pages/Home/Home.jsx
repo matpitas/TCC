@@ -11,6 +11,7 @@ import CardHome from '../../components/CardHome/CardHome'
 import { AiOutlineThunderbolt, AiOutlineFieldTime } from 'react-icons/ai'
 import { MdOutlineMoneyOffCsred } from 'react-icons/md'
 import Avatar from '../../components/Avatar/Avatar'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -21,7 +22,7 @@ const Home = () => {
             <p>Uma aplicação para gerenciamento de agenda de jogos com seus amigos</p>
             <h1>Controle horários de jogos com seus amigos!</h1>
           </div>
-          <button className={styles.buttonHome}>Disponível já!</button>
+          <Link to="/entrar" className={styles.buttonHome}>Disponível já!</Link>
         </div>
         <div className={styles.conteudoImagem}>
           <img src={Capa} alt="" />
