@@ -1,0 +1,29 @@
+.painel{
+    display: grid;
+}
+
+
+.ultimoJogo{
+    width: 40%;
+    height: 40vh;
+    background-color: #272727;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagemUltimoJogo{
+    width: 45%;
+    height: 100%;
+}
+
+.imagemUltimoJogo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contextoUltimoJogo{
+    width: 55%;
+}
