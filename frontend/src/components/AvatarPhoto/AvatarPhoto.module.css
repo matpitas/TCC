@@ -1,0 +1,13 @@
+.bordaAvatar{
+    width: 50px;
+    height: 50px;
+    padding: 2px;
+    background: linear-gradient(134deg, #E58D3B 0%, #6955E4 100%);
+    border-radius: 100%;
+}
+
+.AvatarImagem{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}

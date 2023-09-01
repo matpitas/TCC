@@ -1,11 +1,21 @@
 .painel{
+    width: 100%;
+    height: auto;
     display: grid;
 }
 
+.painelAlto{
+    display: flex;
+    width: 95%;
+    margin-top: 2%;
+    margin-left: 2.5%;
+    gap: 1%;
+    height: 50vh;
+}
 
 .ultimoJogo{
-    width: 40%;
-    height: 40vh;
+    width: 60%;
+    height: 100%;
     background-color: #272727;
     border-radius: 13px;
     display: flex;
@@ -16,14 +26,142 @@
 .imagemUltimoJogo{
     width: 45%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.imagemUltimoJogo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.imagemUltimoJogo div {
+    width: 95%;
+    height: 95%;
+    border-radius: 12px;
+    padding: 10px;  
 }
 
 .contextoUltimoJogo{
     width: 55%;
+    padding-right: 10px;
+    padding-top: 10px;
+    display: grid;
+    grid-template-rows: 10% 37% 37% 15% ;
+    place-items: center;
+    height: 100%;
+    /* justify-content: ; */
+}
+
+.contextoUltimoJogo p{
+    font-size: 1rem;
+    color: #A69AF4;
+    font-weight: 800;
+}
+
+.contextoUltimoJogo .titleUltimoJogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.contextoUltimoJogo .titleUltimoJogo h1{
+    color: #b4b4b4;
+    font-weight: 900;
+    font-size: 2.7rem;
+    text-transform: capitalize;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.contextoUltimoJogo .titleUltimoJogo span{
+    color: #7A7A7A;
+    margin-top: .25rem;
+    font-size: 1.25rem;
+    font-style: italic;
+}
+
+.amigosUltimoJogo{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botaoUltimoJogo{
+    color: #83ED94;
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: 100%;
+    padding: 1rem;
+    letter-spacing: -0.0375rem;
+    border-radius: 0.5rem;
+    background: #155E2A;
+    border: none;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+.botaoUltimoJogo:hover{
+    color: #155E2A;
+    background: #83ED94;
+}
+
+.proximaJogatina{
+    /* background: linear-gradient(#00000000, #3E2CAF), url('../../assets/eu.jpeg'); */
+    width: 39%;
+    border-radius: 13px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+    transition: all .4s ease;
+
+    position: relative;
+}
+.proximaJogatina:hover{
+    cursor: pointer;
+    scale: 95%;
+}
+
+.proximaJogatina h2{
+    color: #DBD9E9;
+    font-size: 1.625rem;
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: -0.04063rem;
+}
+
+.proximaJogatina h1{
+    color: #E58D3B;
+    font-size: 2.8125rem;
+    font-style: normal;
+    font-weight: 900;
+    padding-bottom: 10px;
+    letter-spacing: -0.07031rem;
+}
+
+.proximaJogatina p{
+    color: #B8B0EB;
+    font-size: 1.0625rem;
+    font-style: normal;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+
+
+
+.proximaJogatina .amigosProximaJogatina{
+    padding-bottom: 10px;
+}
+
+.listaAmigos{
+}
+
+.iniciar{
 }

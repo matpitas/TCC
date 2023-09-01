@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './Avatar.module.css'
 
-const Avatar = ({url}) => {
+const Avatar = ({children}) => {
   return (
-    <>
-        <img className={styles.avatarDef} src={url} />
-    </>
+    <div className={styles.avatarDef}>
+        {children}
+    </div>
   )
 }
 
