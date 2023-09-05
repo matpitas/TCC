@@ -160,8 +160,46 @@
     padding-bottom: 10px;
 }
 
-.listaAmigos{
+.painelBaixo{
+    display: flex;
+    width: 95%;
+    margin-top: 1%;
+    margin-left: 2.5%;
+    gap: 1%;
+    height: 80vh;
 }
 
-.iniciar{
+.listaAmigosPainel{
+    width: 30%;
+    background-color: #272727;
+    border-radius: 12px;
+
+    
+}
+
+.friendsCollection{
+    width: 100%;
+    height: 87%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+.listaAmigosPainel .titleFriendsList{
+    color: #dfdddb ;
+    font-size: 1.5rem;
+    padding: 20px;
+}
+
+.listaAmigosPainel .friendsUserBox{
+    width: 100%;
+}
+
+.iniciarPainel{
+    width: 70%;
+    background-color: #272727;
+    border-radius: 12px;
 }

@@ -16,7 +16,7 @@ import Cadastrar from './pages/Cadastrar/Cadastrar'
 
 function App() {
 
-
+  // document.addEventListener('contextmenu', event => event.preventDefault());
   return (
     <div className={styles.App}>
         <BrowserRouter>

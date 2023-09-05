@@ -10,6 +10,7 @@ import prox from '../../assets/bald.webp'
 import user1 from '../../assets/balle.png'
 import user2 from '../../assets/guigiu.png'
 import user3 from '../../assets/lucao.png'
+import FriendBox from '../../components/FriendBox/FriendBox'
 
 const Painel = () => {
   return (
@@ -31,9 +32,9 @@ const Painel = () => {
             </div>
             <div className={styles.amigosUltimoJogo}>
                 <Avatar>
-                  <AvatarPhoto img={user1} />
-                  <AvatarPhoto img={user2} />
-                  <AvatarPhoto img={user3} />
+                  <AvatarPhoto img={user1} nome="Rafaella Ballerini" />
+                  <AvatarPhoto img={user2} nome="Guilherme Buzatto"/>
+                  <AvatarPhoto img={user3} nome="Lucas de Almeida" />
                 </Avatar> 
             </div>
             <button className={styles.botaoUltimoJogo}>Jogar Novamente</button>
@@ -46,22 +47,45 @@ const Painel = () => {
           <p>01/09/2023 22:30</p>
           <div className={styles.amigosProximaJogatina}>
             <Avatar>
-                    <AvatarPhoto img={user1} />
-                    <AvatarPhoto img={user2} />
-                    <AvatarPhoto img={user3} />
+                    <AvatarPhoto img={user1} nome="Rafaella Ballerini"/>
+                    <AvatarPhoto img={user2} nome="Guilherme Buzatto"/>
+                    <AvatarPhoto img={user3} nome="Lucas de Almeida"/>
             </Avatar> 
           </div>
         </div>
       </div>
 
       <div className={styles.painelBaixo}>
-        <div className={styles.listaAmigos}>
-        <a href="">asd</a>
-
+        <div className={styles.listaAmigosPainel}>
+            <h2 className={styles.titleFriendsList}>Lista de Amigos</h2>
+            <div className={styles.friendsCollection}>
+              <div className={styles.friendsUserBox}>
+                <FriendBox img={user1} status='ativo' nome='Rafaella Ballerini' />
+              </div>
+              <div className={styles.friendsUserBox}>
+                <FriendBox img={user2} status='inativo' nome='Guilherme Buzatto' />
+              </div>
+              <div className={styles.friendsUserBox}>
+                <FriendBox img={user2} status='inativo' nome='Guilherme Buzatto' />
+              </div>
+              <div className={styles.friendsUserBox}>
+                <FriendBox img={user3} status='inativo' nome='Guilherme Buzatto' />
+              </div>
+              <div className={styles.friendsUserBox}>
+                <FriendBox img={user3} status='inativo' nome='Guilherme Buzatto' />
+              </div>
+              <div className={styles.friendsUserBox}>
+                <FriendBox img={user3} status='inativo' nome='Guilherme Buzatto' />
+              </div>
+              <div className={styles.friendsUserBox}>
+                <FriendBox img={user3} status='inativo' nome='Guilherme Buzatto' />
+              </div>
+            </div>
+            
+          
         </div>
-        <div className={styles.iniciar}>
-        <a href="">asd</a>
-
+        <div className={styles.iniciarPainel}>
+        
         </div>
       </div>
     </div>

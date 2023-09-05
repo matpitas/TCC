@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styles from './Cadastrar.module.css'
 import Input from '../../components/Input/Input'
 import { Link } from 'react-router-dom'
@@ -24,4 +24,4 @@ const Cadastrar = () => {
   )
 }
 
-export default Cadastrar
+export default memo(Cadastrar)

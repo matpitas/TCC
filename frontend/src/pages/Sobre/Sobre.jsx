@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styles from './Sobre.module.css'
 import SobreImage from '../../assets/about.png'
 
@@ -11,4 +11,4 @@ const Sobre = () => {
   )
 }
 
-export default Sobre
+export default memo(Sobre)

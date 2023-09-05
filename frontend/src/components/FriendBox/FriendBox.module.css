@@ -1,0 +1,62 @@
+.friendBox{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    padding: 10px;
+    border-radius: 8px;
+    transition: all .4s ease;
+}
+
+.friendBox:hover{
+    background-color: #3d3d3d;
+    scale: 95%;
+}
+
+.friendBox .avatarFriendBox{
+    height: 100%;
+    width: 30%;
+}
+
+.friendBox .nomeFriendBox{
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.friendBox .nomeFriendBox h2{
+    color: #C3B6AA;
+}
+
+
+.friendBox .avatarFriendBox img{
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+}
+
+.boxStatusFriendAtivo {
+    background-color: rgb(129, 221, 129);
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 3px solid #272727;
+    position: absolute;
+    bottom: 10px;
+    left: 10;
+}
+
+.boxStatusFriendInativo {
+    background-color: rgb(220, 101, 99);
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 3px solid #272727;
+    position: absolute;
+    bottom: 10px;
+    left: 10;
+}
