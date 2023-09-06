@@ -202,4 +202,45 @@
     width: 70%;
     background-color: #272727;
     border-radius: 12px;
+
+    display: grid;
+    grid-template-rows: 85% 15%;
+}
+
+.bannerIniciarPainel{
+    width: 100%;
+    padding: 10px 10px 0 10px;
+}
+
+.bannerIniciarPainel img{
+    width: 100%;
+    height: 100%;
+}
+
+.boxButtonAgendar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.buttonAgendar{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    background-color: #472D14;
+    color: #E58D3B;
+    font-size: 1.625rem;
+    font-weight: 800;
+    transition: all .4s ease;
+}
+
+.buttonAgendar:hover{
+    background-color: #E58D3B;
+    color: #472D14;
+    cursor: pointer;
 }

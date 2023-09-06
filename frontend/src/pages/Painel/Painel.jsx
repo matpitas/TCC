@@ -5,6 +5,7 @@ import styles from './Painel.module.css'
 
 import imagem from '../../assets/imagem.jpeg'
 import prox from '../../assets/bald.webp'
+import BannerIniciar from '../../assets/BannerAgendar.png'
 
 // teste
 import user1 from '../../assets/balle.png'
@@ -85,7 +86,12 @@ const Painel = () => {
           
         </div>
         <div className={styles.iniciarPainel}>
-        
+          <div className={styles.bannerIniciarPainel}>
+            <img src={BannerIniciar} alt="" />
+          </div>  
+          <div className={styles.boxButtonAgendar}>
+            <button className={styles.buttonAgendar}>Agendar</button>
+          </div>
         </div>
       </div>
     </div>
