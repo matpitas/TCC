@@ -1,0 +1,75 @@
+.FriendRequest{
+    width: 12vw;
+    height: 35vh;
+    background-color: #272727;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+}
+
+
+.nameFriendR{
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 600;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.nameFriendR p{
+    color: #E58D3B;
+    font-size: 1rem;
+}
+
+.buttonsFriendR{
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+ .buttonsFriendR button:first-child{
+    background-color: #499d4d;
+    color: white;
+    font-size: 1.5rem;
+    height: 5vh;
+    width: 30%;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+
+.buttonsFriendR button:first-child:hover{
+    background-color: #1a571d;
+}
+
+
+ .buttonsFriendR button:last-child{
+    background-color: #9d4949;
+    color: white;
+    font-size: 1.5rem;
+    height: 5vh;
+    outline: none;
+    border: none;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+
+
+.buttonsFriendR button:last-child:hover{
+    background-color: #831a1a;
+}

@@ -20,7 +20,7 @@ function App() {
 
   const {login} = useAuthContext()
 
-  document.addEventListener('contextmenu', event => event.preventDefault());
+  // document.addEventListener('contextmenu', event => event.preventDefault());
   return (
     <div className={styles.App}>
         <BrowserRouter>

@@ -15,9 +15,16 @@ import useAuthContext from '../../Hooks/useAuthContext'
 
 const Navbar = () => {
 
-  const {login} = useAuthContext()
+  const {login, setLogin} = useAuthContext()
+  const nome = 'Matheus Pitas Baptista'
+  let Greeting
 
-  console.log(login)
+  if(!login){
+    Greeting = <NavLink to="/entrar">Entrar</NavLink>
+  }else{
+    Greeting = 'Olá, '+nome
+  }
+
 
   return (
         <div className={styles.navbar}>
@@ -36,10 +43,10 @@ const Navbar = () => {
               {login && <NavLink data-tooltip-id="AdicionarAmigos" data-tooltip-content="Adicionar Amigos" to="/amigos" className={(({isActive}) => (isActive ? styles.active : ''))}> <BsPersonFillAdd/> </NavLink>}
 
               {login && <NavLink data-tooltip-id="Notificacoes" data-tooltip-content="Notificações" to="/notificacoes" className={(({isActive}) => (isActive ? styles.active : ''))}> <IoIosNotifications/> </NavLink>}
-              
+
             </div>
-            <div className={styles.entrar}>
-              <NavLink to="/entrar">Entrar</NavLink>
+            <div onClick={() => {setLogin(!login)}} className={styles.entrar}>
+              {Greeting}
             </div>
 
             <Tooltip id="Home" />

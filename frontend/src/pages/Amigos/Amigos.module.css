@@ -1,0 +1,25 @@
+.AmigosPage{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2%;
+    gap: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.AmigosPage h1{
+    color: white;
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+
+.AmigosListaTotal{
+    width: 80%;
+    margin-left: 10%;
+    gap: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
