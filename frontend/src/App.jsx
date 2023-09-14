@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import styles from './App.module.css'
 
 
@@ -13,22 +13,27 @@ import Notificacoes from './pages/Notificacoes/Notificacoes'
 import Amigos from './pages/Amigos/Amigos'
 import Painel from './pages/Painel/Painel'
 import Cadastrar from './pages/Cadastrar/Cadastrar'
+import Agendar from './pages/Agendar/Agendar'
+import useAuthContext from './Hooks/useAuthContext'
 
 function App() {
 
-  // document.addEventListener('contextmenu', event => event.preventDefault());
+  const {login} = useAuthContext()
+
+  document.addEventListener('contextmenu', event => event.preventDefault());
   return (
     <div className={styles.App}>
         <BrowserRouter>
           <Navbar />
             <Routes>
-              <Route path="/" element={<Home />}/>
-              <Route path="/sobre" element={<Sobre />}/>
-              <Route path="/entrar" element={<Entrar />}/>
-              <Route path="/notificacoes" element={<Notificacoes />}/>
-              <Route path="/amigos" element={<Amigos />}/>
-              <Route path="/painel" element={<Painel />}/>
-              <Route path="/cadastrar" element={<Cadastrar />}/>
+              <Route path="/" element={!login ? <Home /> : <Navigate to='/painel'/>}/>
+              <Route path="/sobre" element={!login ? <Sobre /> : <Navigate to='/painel'/>}/>
+              <Route path="/entrar" element={!login ? <Entrar /> : <Navigate to='/painel'/>}/>
+              <Route path="/notificacoes" element={login ? <Notificacoes /> : <Navigate to='/'/>}/>
+              <Route path="/amigos" element={login ? <Amigos /> : <Navigate to='/'/>}/>
+              <Route path="/painel" element={login ? <Painel /> : <Navigate to='/'/>}/>
+              <Route path="/cadastrar" element={!login ? <Cadastrar /> : <Navigate to='/'/>}/>
+              <Route path="/agendamento" element={login ? <Agendar /> : <Navigate to='/'/>}/>
             </Routes>
           <Footer />
         </BrowserRouter>

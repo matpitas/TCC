@@ -8,10 +8,11 @@ import prox from '../../assets/bald.webp'
 import BannerIniciar from '../../assets/BannerAgendar.png'
 
 // teste
-import user1 from '../../assets/balle.png'
-import user2 from '../../assets/guigiu.png'
-import user3 from '../../assets/lucao.png'
+import user1 from '../../assets/eu.jpeg'
+import user2 from '../../assets/eu.jpeg'
+import user3 from '../../assets/eu.jpeg'
 import FriendBox from '../../components/FriendBox/FriendBox'
+import { Link } from 'react-router-dom'
 
 const Painel = () => {
   return (
@@ -90,7 +91,7 @@ const Painel = () => {
             <img src={BannerIniciar} alt="" />
           </div>  
           <div className={styles.boxButtonAgendar}>
-            <button className={styles.buttonAgendar}>Agendar</button>
+          <Link to="/agendamento" className={styles.buttonAgendar}>Agendar</Link>
           </div>
         </div>
       </div>

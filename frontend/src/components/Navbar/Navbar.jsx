@@ -11,8 +11,14 @@ import { BsBookHalf, BsPersonFillAdd } from 'react-icons/bs'
 import { IoIosNotifications } from 'react-icons/io'
 
 import { Tooltip } from 'react-tooltip'
+import useAuthContext from '../../Hooks/useAuthContext'
 
 const Navbar = () => {
+
+  const {login} = useAuthContext()
+
+  console.log(login)
+
   return (
         <div className={styles.navbar}>
             <div className={styles.logo}>
@@ -22,10 +28,15 @@ const Navbar = () => {
               </NavLink>
             </div>
             <div className={styles.menu}>
-              <NavLink data-tooltip-id="Home" data-tooltip-content="Home" to="/"  className={(({isActive}) => (isActive ? styles.active : ''))}> <HiHome/> </NavLink>
-              <NavLink data-tooltip-id="Sobre" data-tooltip-content="Sobre" to="/sobre" className={(({isActive}) => (isActive ? styles.active : ''))}> <BsBookHalf /></NavLink>
-              {/* <NavLink data-tooltip-id="AdicionarAmigos" data-tooltip-content="Adicionar Amigos" to="/amigos" className={(({isActive}) => (isActive ? styles.active : ''))}> <BsPersonFillAdd/> </NavLink> */}
-              {/* <NavLink data-tooltip-id="Notificacoes" data-tooltip-content="Notificações" to="/notificacoes" className={(({isActive}) => (isActive ? styles.active : ''))}> <IoIosNotifications/> </NavLink> */}
+
+              {!login && <NavLink data-tooltip-id="Home" data-tooltip-content="Home" to="/"  className={(({isActive}) => (isActive ? styles.active : ''))}> <HiHome/> </NavLink>}
+
+              {!login && <NavLink data-tooltip-id="Sobre" data-tooltip-content="Sobre" to="/sobre" className={(({isActive}) => (isActive ? styles.active : ''))}> <BsBookHalf /></NavLink>}
+
+              {login && <NavLink data-tooltip-id="AdicionarAmigos" data-tooltip-content="Adicionar Amigos" to="/amigos" className={(({isActive}) => (isActive ? styles.active : ''))}> <BsPersonFillAdd/> </NavLink>}
+
+              {login && <NavLink data-tooltip-id="Notificacoes" data-tooltip-content="Notificações" to="/notificacoes" className={(({isActive}) => (isActive ? styles.active : ''))}> <IoIosNotifications/> </NavLink>}
+              
             </div>
             <div className={styles.entrar}>
               <NavLink to="/entrar">Entrar</NavLink>

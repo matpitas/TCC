@@ -1,0 +1,90 @@
+.agendamento{
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    height: 90vh;
+    padding: 10px 0;
+}
+
+.formAgendar{
+    width: 65%;
+    background-color: #272727;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-right: 5%;
+}
+
+.formAgendar .formInputsAgendar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.formAgendar .inputsAgendar{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.formAgendar .formInputsAgendar h1{
+    text-align: center;
+    padding: 30px 0 0 0;
+    color: #A193FA;
+}
+
+.formAgendar .inputsAgendar label{
+    font-size: 16px;
+    padding: 10px;
+    font-weight: 500;
+    color: white;
+}
+
+.formAgendar .inputsAgendar input{
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4f4688;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background-color: #c3c3c3;
+}
+
+.formAgendar .inputsAgendar .agendamentoParticipantes{
+    padding: 10px;
+}
+
+.formAgendar .formInputsAgendar button{
+    width: 98%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #1E1557;
+    color: #9487E3;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    margin-bottom: 5px;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+
+.formAgendar .formInputsAgendar button:hover{
+    background-color: #9487E3;
+    color: #1E1557;
+}
+
+.bannerAgendar{
+    width: 10%;
+
+}
+
+.bannerAgendar img{
+    height: 100%;
+}

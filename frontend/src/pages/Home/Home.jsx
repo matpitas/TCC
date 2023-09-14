@@ -12,8 +12,12 @@ import { AiOutlineThunderbolt, AiOutlineFieldTime } from 'react-icons/ai'
 import { MdOutlineMoneyOffCsred } from 'react-icons/md'
 import Avatar from '../../components/Avatar/Avatar'
 import { Link } from 'react-router-dom'
+import useAuthContext from '../../Hooks/useAuthContext'
 
 const Home = () => {
+
+  const {login, setLogin} = useAuthContext()
+
   return (
     <div>
       <div className={styles.principal}>
@@ -40,6 +44,9 @@ const Home = () => {
       <div className={styles.banner}>
         <img src={Banner} alt="" />
       </div>
+
+
+
     </div>
   )
 }
