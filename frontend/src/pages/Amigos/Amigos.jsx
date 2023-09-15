@@ -17,6 +17,7 @@ const Amigos = () => {
         <FriendRequest photoProfile="https://avatars.githubusercontent.com/u/63295491?v=4" nameProfile="Matheus Pitas Baptista" />
         <FriendRequest photoProfile="https://avatars.githubusercontent.com/u/63295491?v=4" nameProfile="Matheus Pitas Baptista" />
         <FriendRequest photoProfile="https://avatars.githubusercontent.com/u/63295491?v=4" nameProfile="Matheus Pitas Baptista" />
+  
     </div>
   )
 }
