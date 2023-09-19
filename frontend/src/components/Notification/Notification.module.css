@@ -1,3 +1,96 @@
 .notification{
-    
+    width: 100%;
+    height: 25vh;
+    background-color: #272727;
+    border-radius: 13px;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    margin: 1%;
+}
+
+.iconNotification{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconNotification img {
+    width: 50%;
+}
+
+.contentNotification{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5%;
+}
+
+.contentNotification h2{
+    color: #FFF;
+    font-size: 1.125rem;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.contentNotification h2 span{
+    color: #E58D3B;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.contentNotification p{
+    color: #7C7C7C;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.actionNotification{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+
+.actionNotification .dismissNotification{
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    outline: none;
+    background-color: #1B1B1B;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: all .4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actionNotification .dismissNotification:hover{
+    background-color: rgb(198, 198, 198);
+    color: #1B1B1B;
+}
+
+.actionNotification .acceptNotification{
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    outline: none;
+    background-color: #6955E4;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: all .4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actionNotification .acceptNotification:hover{
+    background-color: #8a7dde;
+    color: #1d135f;
 }

@@ -4,7 +4,9 @@ import styles from './Notificacoes.module.css'
 
 const Notificacoes = () => {
   return (
-    <div>
+    <div className={styles.contentNotif}>
+      <Notification  />
+      <Notification  />
       <Notification  />
     </div>
   )
