@@ -5,7 +5,7 @@ import styles from './Painel.module.css'
 
 import imagem from '../../assets/imagem.jpeg'
 import prox from '../../assets/bald.webp'
-import BannerIniciar from '../../assets/BannerAgendar.png'
+import BannerIniciar from '../../assets/bannerAgendar.png'
 
 // teste
 import user1 from '../../assets/eu.jpeg'

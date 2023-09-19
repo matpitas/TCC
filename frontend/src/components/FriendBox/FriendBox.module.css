@@ -38,25 +38,3 @@
     height: 60%;
     border-radius: 50%;
 }
-
-.boxStatusFriendAtivo {
-    background-color: rgb(129, 221, 129);
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    border: 3px solid #272727;
-    position: absolute;
-    bottom: 10px;
-    left: 10;
-}
-
-.boxStatusFriendInativo {
-    background-color: rgb(220, 101, 99);
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    border: 3px solid #272727;
-    position: absolute;
-    bottom: 10px;
-    left: 10;
-}

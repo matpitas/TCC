@@ -6,7 +6,6 @@ const FriendBox = ({img, status, nome}) => {
     <div className={styles.friendBox}>
         <div className={styles.avatarFriendBox}>
           <img src={img} alt="" />
-          <div className={status == 'ativo' ? styles.boxStatusFriendAtivo : styles.boxStatusFriendInativo}></div>
         </div>
         <div className={styles.nomeFriendBox}>
           <h2>{nome}</h2> 
