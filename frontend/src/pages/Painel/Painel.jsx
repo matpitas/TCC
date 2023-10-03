@@ -62,7 +62,11 @@ const Painel = () => {
             <h2 className={styles.titleFriendsList}>Lista de Amigos</h2>
             <div className={styles.friendsCollection}>
               <div className={styles.friendsUserBox}>
-                <FriendBox img={user1} status='ativo' nome='Matheus Pitas Baptista' />
+                <FriendBox img={user1} nome='Matheus Pitas Baptista' />
+                <FriendBox img={user1} nome='Matheus Pitas Baptista' />
+                <FriendBox img={user1} nome='Matheus Pitas Baptista' />
+                <FriendBox img={user1} nome='Matheus Pitas Baptista' />
+                <FriendBox img={user1} nome='Matheus Pitas Baptista' />
               </div>
             </div>
             

@@ -50,7 +50,7 @@
 }
 
 .contextoUltimoJogo p{
-    font-size: 1rem;
+    font-size: 1;
     color: #A69AF4;
     font-weight: 800;
 }
@@ -66,7 +66,7 @@
 .contextoUltimoJogo .titleUltimoJogo h1{
     color: #b4b4b4;
     font-weight: 900;
-    font-size: 2.7rem;
+    font-size: 2rem;
     text-transform: capitalize;
     margin-top: 1rem;
     display: flex;
@@ -196,6 +196,7 @@
 
 .listaAmigosPainel .friendsUserBox{
     width: 100%;
+    font-size: 0.8rem;
 }
 
 .iniciarPainel{
@@ -246,4 +247,67 @@
     background-color: #E58D3B;
     color: #472D14;
     cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .painel{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .painelAlto{
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        margin-top: 2%;
+        margin-left: 2.5%;
+        gap: 1%;
+        height: 100vh;
+    }
+
+    .ultimoJogo{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .botaoUltimoJogo{
+        margin-bottom: 2%;
+    }
+
+    .proximaJogatina{
+        width: 100%;
+    }
+
+
+    .painelBaixo{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 95%;
+        gap: 1%;
+        height: auto;
+    }
+
+    .iniciarPainel{
+        width: 100%;
+        margin-bottom: 2%;
+        height: auto;
+    }
+
+    .buttonAgendar{
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    .listaAmigosPainel{
+        width: 100%;
+        height: 80vh;
+    }
+    
+    .listaAmigosPainel .friendsUserBox{
+        width: 100%;
+        font-size: 1rem;
+        
+    }
 }

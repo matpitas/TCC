@@ -48,7 +48,14 @@
 
     .mainFooter{
         height: 22rem;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        
     }
+
+    .logoFooter{display: none;}
 
     .cardsFooter{
         display: flex;
@@ -56,5 +63,6 @@
         justify-content: center;
         width: 95%;
         gap: 1rem;
+        margin-left: 2.5%;
     }
 }
