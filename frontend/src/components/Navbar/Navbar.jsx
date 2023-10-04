@@ -45,7 +45,7 @@ const Navbar = () => {
               {login && <NavLink data-tooltip-id="Notificacoes" data-tooltip-content="Notificações" to="/notificacoes" className={(({isActive}) => (isActive ? styles.active : ''))}> <IoIosNotifications/> </NavLink>}
 
             </div>
-            <div onClick={() => {setLogin(!login)}} className={styles.entrar}>
+            <div className={styles.entrar}>
               {Greeting}
             </div>
 

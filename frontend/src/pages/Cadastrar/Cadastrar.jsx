@@ -1,12 +1,11 @@
 import React, { memo } from 'react'
 import styles from './Cadastrar.module.css'
-import Input from '../../components/Input/Input'
 import { Link } from 'react-router-dom'
 
 const Cadastrar = () => {
   return (
     <form className={styles.caixaCadastro}>
-        <h1>Cadastro</h1>
+        {/* <h1>Cadastro</h1>
 
         <Input titulo='Nome' tipo='text' placeholder='Matheus Pitas Baptista'/>
         <Input titulo='Email' tipo='text' placeholder='email@email.com'/>
@@ -19,7 +18,7 @@ const Cadastrar = () => {
 
         
         <button type='submit' className={styles.cadastro}>Cadastrar</button>
-        <Link to="/entrar" className={styles.entrar}>Voltar</Link>
+        <Link to="/entrar" className={styles.entrar}>Voltar</Link> */}
     </form>
   )
 }
