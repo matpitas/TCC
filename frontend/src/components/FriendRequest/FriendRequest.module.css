@@ -1,12 +1,13 @@
 .FriendRequest{
-    width: 12vw;
-    height: 35vh;
+    width: 23%;
+    height: 45vh;
     background-color: #272727;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     border-radius: 20px;
+    padding: 10px;
 }
 
 

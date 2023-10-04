@@ -23,6 +23,7 @@
 
 .textoPrincipal p{
     font-weight: 700;
+    font-size: 1rem;
     color: #6955E4;
     letter-spacing: -0.5px;
 }
@@ -86,7 +87,7 @@
 
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
     .textoPrincipal h1{
         font-size: 6rem;
         font-weight: 600;
@@ -95,7 +96,7 @@
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     .textoPrincipal h1{
         font-size: 5rem;
         font-weight: 600;
@@ -108,7 +109,7 @@
     }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1000px) {
     .textoPrincipal h1{
         font-size: 4rem;
         font-weight: 600;
@@ -121,7 +122,7 @@
     }
 }
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width: 800px) {
     .principal{
         display: flex;
         flex-direction: column;

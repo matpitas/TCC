@@ -5,7 +5,8 @@
     gap: 20px;
 
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .AmigosPage h1{
@@ -17,9 +18,17 @@
 
 .AmigosListaTotal{
     width: 80%;
-    margin-left: 10%;
     gap: 20px;
+    margin-top: 2%;
 
     display: flex;
     flex-wrap: wrap;
+}
+
+
+@media (max-width: 1300px) {
+    .AmigosListaTotal{
+        width: 100%;
+        margin-left: 5%;
+    }
 }

@@ -8,7 +8,7 @@ const Amigos = () => {
 
       <h1>Solicitações de Amizade</h1>
 
-      <div className={styles.AmigosListaTotal}></div>
+      <div className={styles.AmigosListaTotal}>
 
         <FriendRequest photoProfile="https://avatars.githubusercontent.com/u/63295491?v=4" nameProfile="Matheus Pitas Baptista" />
         <FriendRequest photoProfile="https://avatars.githubusercontent.com/u/63295491?v=4" nameProfile="Matheus Pitas Baptista" />
@@ -17,7 +17,7 @@ const Amigos = () => {
         <FriendRequest photoProfile="https://avatars.githubusercontent.com/u/63295491?v=4" nameProfile="Matheus Pitas Baptista" />
         <FriendRequest photoProfile="https://avatars.githubusercontent.com/u/63295491?v=4" nameProfile="Matheus Pitas Baptista" />
         <FriendRequest photoProfile="https://avatars.githubusercontent.com/u/63295491?v=4" nameProfile="Matheus Pitas Baptista" />
-  
+        </div>  
     </div>
   )
 }
