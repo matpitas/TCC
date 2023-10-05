@@ -12,6 +12,11 @@ const getUserByIdController = async (request, response) => {
     return response.status(200).json(user)
 }
 
+const authUserLoginController = async (request, response) => {
+    const auth = await userModel.authUserLogin(request.body)
+    return response.status(200).json(auth)
+}
+
 const addUserController = async (request, response) => {
     const userCreate = await userModel.addUser(request.body)
     return response.status(201).json(userCreate)
@@ -35,4 +40,5 @@ module.exports = {
     deleteUserController,
     updatedUserController,
     getUserByIdController,
+    authUserLoginController,
 }

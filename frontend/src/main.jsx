@@ -6,11 +6,14 @@ import 'react-tooltip/dist/react-tooltip.css'
 
 
 import { AuthContextProvider } from './Context/AuthContext.jsx'
+import { UserContextProvider } from './Context/UserContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthContextProvider>
-      <App />
+      <UserContextProvider>
+        <App />
+      </UserContextProvider>
     </AuthContextProvider>
   </React.StrictMode>
 )

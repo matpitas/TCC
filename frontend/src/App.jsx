@@ -15,6 +15,8 @@ import Painel from './pages/Painel/Painel'
 import Cadastrar from './pages/Cadastrar/Cadastrar'
 import Agendar from './pages/Agendar/Agendar'
 import useAuthContext from './Hooks/useAuthContext'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -35,6 +37,12 @@ function App() {
               <Route path="/cadastrar" element={!login ? <Cadastrar /> : <Navigate to='/'/>}/>
               <Route path="/agendamento" element={login ? <Agendar /> : <Navigate to='/'/>}/>
             </Routes>
+            <ToastContainer
+              position="bottom-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              theme="dark"
+            />
           <Footer />
         </BrowserRouter>
     </div>

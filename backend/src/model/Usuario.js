@@ -12,6 +12,20 @@ const getUserById = async (id) => {
     return user
 }
 
+const authUserLogin = async (userAuth) => {
+    const {email, senha} = userAuth 
+    const [user] = await connection.execute(`SELECT * FROM usuarios where email = '${email}' and senha = '${senha}' and status = 1`)
+    
+    if(user.length == 0){
+        return {
+            "status": "401",
+            "msg": "Não foi possivel encontrar nenhum usuário com essa senha ou ativo."
+        }
+    }
+
+    return user[0]
+}
+
 const addUser = async (user) => {
     const {nome,email,senha} = user
 
@@ -43,4 +57,5 @@ module.exports = {
     deleteUser,
     updatedUser,
     getUserById,
+    authUserLogin,
 }

@@ -12,19 +12,30 @@ import { IoIosNotifications } from 'react-icons/io'
 
 import { Tooltip } from 'react-tooltip'
 import useAuthContext from '../../Hooks/useAuthContext'
+import useUserContext from '../../Hooks/useUserContext'
+import Cookies from 'js-cookie'
 
 const Navbar = () => {
 
   const {login, setLogin} = useAuthContext()
-  const nome = 'Matheus Pitas Baptista'
+  const {user} = useUserContext()
   let Greeting
 
+  // Muda entre "Entrar" e "Deseja sair, user"
   if(!login){
     Greeting = <NavLink to="/entrar">Entrar</NavLink>
   }else{
-    Greeting = 'Olá, '+nome
+    Greeting = 'Deseja sair? '+user.name
   }
 
+  // Remove a sessão se a pessoa estiver logada
+  const removeSessao = () => {
+    if(login){
+      setLogin(!login)
+      Cookies.remove("nome")
+      Cookies.remove("email")
+    }
+  }
 
   return (
         <div className={styles.navbar}>
@@ -45,8 +56,8 @@ const Navbar = () => {
               {login && <NavLink data-tooltip-id="Notificacoes" data-tooltip-content="Notificações" to="/notificacoes" className={(({isActive}) => (isActive ? styles.active : ''))}> <IoIosNotifications/> </NavLink>}
 
             </div>
-            <div className={styles.entrar}>
-              {Greeting}
+            <div className={styles.entrar} onClick={() => {removeSessao()}}>
+              {Greeting} 
             </div>
 
             <Tooltip id="Home" />
