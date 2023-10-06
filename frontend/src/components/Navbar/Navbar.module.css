@@ -34,7 +34,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    font-size: 1.85rem;
+    font-size: 1.35rem;
     letter-spacing: -2.5%;
 }
 
@@ -53,7 +53,7 @@ a{
     align-items: center;
     justify-content: end;
     margin-right: 2rem;
-    font-size: 1.25rem;
+    font-size: .8rem;
     letter-spacing: -2.5%;
     font-weight: bold;
     width: auto;

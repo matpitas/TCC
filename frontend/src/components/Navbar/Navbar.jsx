@@ -14,6 +14,7 @@ import { Tooltip } from 'react-tooltip'
 import useAuthContext from '../../Hooks/useAuthContext'
 import useUserContext from '../../Hooks/useUserContext'
 import Cookies from 'js-cookie'
+import { MdPersonSearch } from 'react-icons/md'
 
 const Navbar = () => {
 
@@ -54,6 +55,8 @@ const Navbar = () => {
               {login && <NavLink data-tooltip-id="AdicionarAmigos" data-tooltip-content="Adicionar Amigos" to="/amigos" className={(({isActive}) => (isActive ? styles.active : ''))}> <BsPersonFillAdd/> </NavLink>}
 
               {login && <NavLink data-tooltip-id="Notificacoes" data-tooltip-content="Notificações" to="/notificacoes" className={(({isActive}) => (isActive ? styles.active : ''))}> <IoIosNotifications/> </NavLink>}
+              
+              {login && <NavLink data-tooltip-id="BuscarAmigos" data-tooltip-content="Buscar Amigos" to="/buscaamigos" className={(({isActive}) => (isActive ? styles.active : ''))}> <MdPersonSearch/> </NavLink>}
 
             </div>
             <div className={styles.entrar} onClick={() => {removeSessao()}}>
@@ -63,7 +66,8 @@ const Navbar = () => {
             <Tooltip id="Home" />
             <Tooltip id="Sobre" />
             <Tooltip id="Notificacoes" />
-            <Tooltip id="AdicionarAmigos" />
+            <Tooltip id="AdicionarAmigos" /> 
+            <Tooltip id="BuscarAmigos" /> 
 
         </div>
   )

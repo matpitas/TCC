@@ -23,7 +23,7 @@ const Entrar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     
-    axios({
+    await axios({
       method: 'post',
       url: 'http://localhost:3333/auth/user',
       data:{

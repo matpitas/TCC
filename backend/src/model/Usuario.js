@@ -27,13 +27,13 @@ const authUserLogin = async (userAuth) => {
 }
 
 const addUser = async (user) => {
-    const {nome,email,senha} = user
+    const {nome,email,senha,avatar} = user
 
     const DataAtual = new Date(Date.now())
 
-    const query = 'INSERT INTO usuarios(nome,senha,criadoEm,email) VALUES (?,?,?,?)'
+    const query = 'INSERT INTO usuarios(nome,senha,criadoEm,email,avatar) VALUES (?,?,?,?,?)'
 
-    const [createdUser] = await connection.execute(query,[nome,senha,DataAtual,email])
+    const [createdUser] = await connection.execute(query,[nome,senha,DataAtual,email,avatar])
     return {ID: createdUser.insertId}
 }
 
