@@ -1,0 +1,45 @@
+.buscaamigos{
+    width: 100%;
+    height: auto;
+}
+
+.pesquisar{
+    width: 90%;
+    margin-left: 5%;
+
+}
+
+.label{
+    color: #B5ABF2;
+    font-size: 1.5rem;
+    font-weight: 800;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.input{
+    padding: 1rem;
+    color: #3a2c95;
+    font-weight: bold;
+    font-size: 1.25rem;
+    outline: none;
+    background-color: #e9e7f6;
+    border-radius: 7px;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.resultadoBuscaAmigos{
+    width: 90%;
+    margin-left: 5%;
+}
+
+.tabelaBuscaAmigos{
+    
+}
