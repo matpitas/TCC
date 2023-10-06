@@ -1,0 +1,45 @@
+
+.addAmigosContainer{
+    width: 80%;
+    height: 20vh;
+    background-color: #272727;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    border-radius: 10px;
+}
+
+.containerImagemAmigos{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.addAmigosContainer img{
+    width: 50%;
+    height: 80%;
+    border-radius: 13px;
+}
+
+.addAmigosContainer h1{
+    color: #e9e7f6;
+}
+
+.addAmigosContainer button{
+    padding: 10px 15px;
+    color: #74d685;
+    background-color: #157826;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+.addAmigosContainer button:hover{
+    background-color: #74d685;
+    color: #157826;
+}

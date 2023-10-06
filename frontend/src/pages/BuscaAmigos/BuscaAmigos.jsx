@@ -1,4 +1,5 @@
 import React from 'react'
+import AddAmigos from '../../components/AddAmigos/AddAmigos'
 import styles from './BuscaAmigos.module.css'
 
 const BuscaAmigos = () => {
@@ -14,7 +15,7 @@ const BuscaAmigos = () => {
 
         <div className={styles.resultadoBuscaAmigos}>
             <div className={styles.tabelaBuscaAmigos}>
-                
+                <AddAmigos nome="Matheus"  />
             </div>
         </div>
 
