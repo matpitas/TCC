@@ -12,6 +12,11 @@ const getUserByIdController = async (request, response) => {
     return response.status(200).json(user)
 }
 
+const getUsersForSearchController = async (request, response) => {
+    const users = await userModel.getUsersForSearch(request.body)
+    return response.status(200).json(users)
+}
+
 const authUserLoginController = async (request, response) => {
     const auth = await userModel.authUserLogin(request.body)
     return response.status(200).json(auth)
@@ -41,4 +46,5 @@ module.exports = {
     updatedUserController,
     getUserByIdController,
     authUserLoginController,
+    getUsersForSearchController,
 }

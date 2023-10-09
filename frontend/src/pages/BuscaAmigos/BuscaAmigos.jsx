@@ -1,21 +1,51 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AddAmigos from '../../components/AddAmigos/AddAmigos'
 import styles from './BuscaAmigos.module.css'
+import axios from 'axios'
 
 const BuscaAmigos = () => {
+
+    const [ amigos, setAmigos ] = useState([])
+    const [ nome, setNome ] = useState("")
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        await axios({
+            method: "post",
+            url: "http://localhost:3333/users/search",
+            data: {
+                nome
+            }
+        }).then((response) => {
+            setAmigos(response.data)
+            console.log(amigos)
+        })
+    }
+
+
   return (
     <div className={styles.buscaamigos}>
         
-        <form className={styles.pesquisar}>
+        <form className={styles.pesquisar} onSubmit={(e) => handleSubmit(e)}>
             <div className={styles.inputContainer}>
                 <label className={styles.label}>Busque por um amigo</label>    
-                <input type="text" className={styles.input} />
+                <div className={styles.buscalayout}>
+                    <input type="text" className={styles.inputPesq}  value={nome} onChange={(e) => setNome(e.target.value)} />
+                    <button type='submit' className={styles.inputPesqButton}>Pesquisar</button>
+                </div>
             </div>            
         </form>
 
         <div className={styles.resultadoBuscaAmigos}>
             <div className={styles.tabelaBuscaAmigos}>
-                <AddAmigos nome="Matheus"  />
+                {
+                    amigos && amigos.map(amigo => (
+                        
+                        <AddAmigos key={amigo.idUsuario} nome={amigo.nome} avatar={amigo.avatar} />
+                    ))
+                }
+                
             </div>
         </div>
 

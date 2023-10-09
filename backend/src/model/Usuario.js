@@ -12,6 +12,12 @@ const getUserById = async (id) => {
     return user
 }
 
+const getUsersForSearch = async (nomeSearch) => {
+    const { nome } = nomeSearch
+    const [user] = await connection.execute(`SELECT * FROM usuarios WHERE nome like '%${nome}%' `)
+    return user
+}
+
 const authUserLogin = async (userAuth) => {
     const {email, senha} = userAuth 
     const [user] = await connection.execute(`SELECT * FROM usuarios where email = '${email}' and senha = '${senha}' and status = 1`)
@@ -58,4 +64,5 @@ module.exports = {
     updatedUser,
     getUserById,
     authUserLogin,
+    getUsersForSearch,
 }

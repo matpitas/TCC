@@ -17,7 +17,13 @@
     padding-top: 1rem;
 }
 
-.input{
+.buscalayout{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inputPesq{
     padding: 1rem;
     color: #3a2c95;
     font-weight: bold;
@@ -25,6 +31,25 @@
     outline: none;
     background-color: #e9e7f6;
     border-radius: 7px;
+    width: 84%;
+}
+
+.inputPesqButton{
+    width: 15%;
+    font-size: 1.25rem;
+    padding: 1rem;
+    color: #3a2c95;
+    background-color: #8378c8;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all .5s ease;
+    outline: none;
+    border: none;
+}
+
+.inputPesqButton:hover{
+    background-color: #3a2c95;
+    color: #8378c8;
 }
 
 .inputContainer{
