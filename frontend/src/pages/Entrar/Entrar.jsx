@@ -42,6 +42,7 @@ const Entrar = () => {
       if(response.data.idUsuario){
         const emailUser = response.data.email
         const nomeUser = response.data.nome
+        const idUsuario = response.data.idUsuario
         
         setLogin(!login)
         console.log(login)
@@ -52,6 +53,7 @@ const Entrar = () => {
 
         Cookies.set("email", emailUser)
         Cookies.set("nome", nomeUser)
+        Cookies.set("id", idUsuario)
         
       }
     })

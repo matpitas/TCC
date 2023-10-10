@@ -12,9 +12,9 @@ const getUserById = async (id) => {
     return user
 }
 
-const getUsersForSearch = async (nomeSearch) => {
+const getUsersForSearch = async (id, nomeSearch) => {
     const { nome } = nomeSearch
-    const [user] = await connection.execute(`SELECT * FROM usuarios WHERE nome like '%${nome}%' `)
+    const [user] = await connection.execute(`SELECT * FROM usuarios WHERE nome like '%${nome}%' and idUsuario != ${id} `)
     return user
 }
 

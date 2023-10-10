@@ -13,7 +13,8 @@ const getUserByIdController = async (request, response) => {
 }
 
 const getUsersForSearchController = async (request, response) => {
-    const users = await userModel.getUsersForSearch(request.body)
+    const { id } = request.params
+    const users = await userModel.getUsersForSearch(id, request.body)
     return response.status(200).json(users)
 }
 
@@ -23,7 +24,12 @@ const authUserLoginController = async (request, response) => {
 }
 
 const addUserController = async (request, response) => {
-    const userCreate = await userModel.addUser(request.body)
+    const { filename } = request.file
+    let { avatar } = request.body
+    const { nome,email,senha } = request.body
+    avatar = filename
+    const newUser = { nome, email, senha, avatar }
+    const userCreate = await userModel.addUser(newUser)
     return response.status(201).json(userCreate)
 }
 

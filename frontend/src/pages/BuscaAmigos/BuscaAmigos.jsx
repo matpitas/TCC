@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import AddAmigos from '../../components/AddAmigos/AddAmigos'
 import styles from './BuscaAmigos.module.css'
 import axios from 'axios'
+import Cookies from 'js-cookie'
 
 const BuscaAmigos = () => {
 
@@ -11,16 +12,20 @@ const BuscaAmigos = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        await axios({
-            method: "post",
-            url: "http://localhost:3333/users/search",
-            data: {
-                nome
-            }
-        }).then((response) => {
-            setAmigos(response.data)
-            console.log(amigos)
-        })
+        if(nome){
+            await axios({
+                method: "post",
+                url: "http://localhost:3333/users/search/" + Cookies.get("id"),
+                data: {
+                    nome
+                }
+            }).then((response) => {
+                setAmigos(response.data)
+                console.log(amigos)
+            })
+        }
+
+       
     }
 
 
