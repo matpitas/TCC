@@ -47,13 +47,15 @@ const BuscaAmigos = () => {
                 {
                     amigos && amigos.map(amigo => (
                         
-                        <AddAmigos key={amigo.idUsuario} nome={amigo.nome} avatar={amigo.avatar} />
+                        <AddAmigos key={amigo.idUsuario} nome={amigo.nome} avatar={amigo.avatar} idUsuario={amigo.idUsuario}/>
                     ))
                 }
                 
             </div>
         </div>
+        
 
+        
     </div>
   )
 }

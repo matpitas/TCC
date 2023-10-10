@@ -47,3 +47,38 @@
     background-color: #74d685;
     color: #157826;
 }
+
+.ChooseAdd{
+    display: flex;
+    gap: 10px;
+    width: 50%;
+}
+
+.ChooseAdd button:first-child{
+    background-color: rgb(60, 38, 38);
+    color: #d47d7d;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ChooseAdd button:first-child:hover{
+    color: rgb(60, 38, 38);
+    background-color: #d47d7d;
+}
+
+.ChooseAdd button:last-child{
+    background-color: #80db36;
+    color: #1c4e24;
+    width: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ChooseAdd button:last-child:hover{
+    color: #80db36;
+    background-color: #1c4e24;
+}
