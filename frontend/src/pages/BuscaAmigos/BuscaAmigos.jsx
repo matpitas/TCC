@@ -21,7 +21,6 @@ const BuscaAmigos = () => {
                 }
             }).then((response) => {
                 setAmigos(response.data)
-                console.log(amigos)
             })
         }
 

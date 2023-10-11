@@ -45,7 +45,7 @@ const Entrar = () => {
         const idUsuario = response.data.idUsuario
         
         setLogin(!login)
-        console.log(login)
+        
         setUser({
           name: nomeUser,
           email: emailUser

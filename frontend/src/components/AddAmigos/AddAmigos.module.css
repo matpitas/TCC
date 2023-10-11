@@ -1,6 +1,8 @@
 
 .addAmigosContainer{
-    width: 25%;
+    width: 24%;
+    min-width: 250px;
+    max-width: 370px;
     height: 400px;
     background-color: #272727;
     display: flex;
@@ -9,7 +11,8 @@
     justify-content: space-around;
     padding: 0 15px;
     border-radius: 10px;
-    margin: 20px 0 20px 0
+    margin: 10px 0;
+    flex-grow: 1;
 }
 
 .containerImagemAmigos{
