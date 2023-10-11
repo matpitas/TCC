@@ -85,6 +85,16 @@
     border-radius: 7px;
 }
 
+.inputFile{
+    padding: 1rem;
+    color: #3a2c95;
+    font-weight: bold;
+    font-size: 1.25rem;
+    outline: none;
+    background-color: #e9e7f6;
+    border-radius: 7px;
+}
+
 .inputContainer{
     display: flex;
     flex-direction: column;
