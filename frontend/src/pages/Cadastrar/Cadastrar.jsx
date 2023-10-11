@@ -11,15 +11,33 @@ const Cadastrar = () => {
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
   const [conSenha, setConSenha] = useState('')
-  const [avatar, setAvatar] = useState('')
+  const [avatar, setAvatar] = useState(null)
+
+  const handleAvatarChange = (e) => {
+    const file = e.target.files[0]
+
+    if(file){ 
+      setAvatar(file)
+    } 
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    const formData = new FormData()
+    formData.append("nome",   nome)
+    formData.append("email",  email)
+    formData.append("senha",  senha)
+    formData.append("avatar", JSON.stringify(avatar))
+
     if(nome && email && senha && conSenha && avatar){
       if(senha === conSenha){
+        
         await axios({
           method: 'post',
+          headers:{ 
+            'Content-Type': 'multipart/form-data'
+          },
           url: 'http://localhost:3333/users/create',
           data:{
             nome,
@@ -55,7 +73,7 @@ const Cadastrar = () => {
   }
 
   return (
-    <form className={styles.caixaCadastro} onSubmit={(e) => handleSubmit(e)}>
+    <form encType="multipart/form-data" className={styles.caixaCadastro} onSubmit={(e) => handleSubmit(e)}>
         <h1>Cadastro</h1>
 
         <div className={styles.inputContainer}>
@@ -78,7 +96,7 @@ const Cadastrar = () => {
         </div>
         <div className={styles.inputContainer}>
             <label className={styles.label}>Avatar</label>
-            <input type="file" className={styles.input} value={avatar} onChange={(e) => setAvatar(e.target.value)} />
+            <input type="file" className={styles.input} accept="image/*" value="" onChange={(e) => handleAvatarChange(e)} />
         </div>
         
 
