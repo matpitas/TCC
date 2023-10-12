@@ -1,8 +1,8 @@
 .AmigosPage{
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
     margin-top: 2%;
     gap: 20px;
+    margin-left: 5%;
 
     display: flex;
     flex-direction: column;
@@ -13,16 +13,19 @@
     color: white;
     font-weight: 800;
     font-size: 2rem;
+    margin-left: 10%;
 }
 
 
 .AmigosListaTotal{
     width: 80%;
+    margin-left: 10%;
     gap: 20px;
     margin-top: 2%;
 
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 

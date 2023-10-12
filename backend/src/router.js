@@ -29,6 +29,8 @@ router.use("/uploads", express.static(path.resolve('uploads')))
 // Rotas de Amigos
 router.post("/friends/create", friendsController.addAmigoController)
 router.post("/friends/verify", friendsController.verifyAmigosController)
+router.post("/friends/list", friendsController.listAmigosController)
+router.post("/friends/request", friendsController.listRequestController)
 
 module.exports = router
 

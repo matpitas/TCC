@@ -1,18 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './FriendRequest.module.css'
 
 import {AiOutlineCheck,AiOutlineClose} from 'react-icons/ai'
-import AvatarPhoto from '../AvatarPhoto/AvatarPhoto'
+import axios from 'axios'
 
 
-const FriendRequest = ({photoProfile, nameProfile}) => {
+const FriendRequest = ({idAmigo}) => {
+
+  const [name, setName] = useState("")
+  const [image, setImage] = useState("")
+
+  useEffect(() => {
+
+    const verUsuario = async () => {
+      await axios({
+                method: "get",
+                url: "http://localhost:3333/users/"+idAmigo
+              }).then((response) => {
+                  setImage(response.data[0].avatar)
+                  setName(response.data[0].nome)
+              })
+            }
+
+    if(idAmigo) {
+      verUsuario()
+    }
+  }, [])
+  
+
   return (
     <div className={styles.FriendRequest}>
         <div className={styles.photoFriendR}>
-            <AvatarPhoto img={photoProfile} />
+          <img src={image && "http://localhost:3333/uploads/"+image} alt="" />
         </div>
         <div className={styles.nameFriendR}>
-            {nameProfile}
+            {name && name}
             <br />
             <p>gostaria de ser seu amigo</p>
         </div>

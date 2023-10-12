@@ -16,11 +16,28 @@ const addAmigo = async (friends) => {
 const verifyAmigos = async (friends) => {
     const { idCriador, idUsuario } = friends
 
-    const [friend] = await connection.execute(`SELECT * FROM amigos WHERE IdCriador = ${idCriador} AND IdDestino = ${idUsuario}`)
+    const [friend] = await connection.execute(`SELECT * FROM amigos WHERE (IdCriador = ${idCriador} AND IdDestino = ${idUsuario}) OR (IdDestino = ${idCriador} AND IdCriador = ${idUsuario})`)
     return friend
 }
 
+const listAmigos = async (idUser) => {
+    const { id } = idUser
+    const sql = "SELECT * FROM amigos WHERE (idCriador = ? OR idDestino = ?) and Status = 1"
+    const [friend] = await connection.execute(sql, [id,id])
+    return friend
+}
+
+const listRequest = async (idUser) => {
+    const { id } = idUser
+    const sql = "SELECT * FROM amigos WHERE idDestino = ? and Status = 0"
+    const [friend] = await connection.execute(sql, [id])
+    return friend
+}
+
+
 module.exports = {
     addAmigo,
-    verifyAmigos
+    verifyAmigos,
+    listAmigos,
+    listRequest
 }
