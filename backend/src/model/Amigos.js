@@ -34,10 +34,16 @@ const listRequest = async (idUser) => {
     return friend
 }
 
+const AcceptRequest = async (idAmizade) => {
+    const sql = "UPDATE amigos SET status = 1 WHERE idAmizade = ?"
+    const [amizade] = await connection.execute(sql, [idAmizade])
+    return amizade
+}
 
 module.exports = {
     addAmigo,
     verifyAmigos,
     listAmigos,
-    listRequest
+    listRequest,
+    AcceptRequest,
 }

@@ -33,13 +33,13 @@ const AddAmigos = ({avatar, nome, idUsuario}) => {
       }
   }).then(async (response) => {
 
-        if(response.data[0]?.Status == 0){
+        if(response.data[0]?.status == 0){
           toast.error("Já foi enviado uma solicitação.")
           setAdd(false)
           return
         }
 
-        if(response.data[0]?.Status == 1){
+        if(response.data[0]?.status == 1){
           toast.error("Amizade já existe.")
           setAdd(false)
           return

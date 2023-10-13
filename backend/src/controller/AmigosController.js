@@ -20,9 +20,16 @@ const listRequestController = async (request, response) => {
     return response.status(200).json(friends)
 }
 
+const AcceptRequestController = async (request, response) => {
+    const { id } = request.params
+    const amiz = await amigosModel.AcceptRequest(id)
+    return response.status(200).json(amiz)
+}
+
 module.exports = {
     addAmigoController,
     verifyAmigosController,
     listAmigosController,
     listRequestController,
+    AcceptRequestController,
 }

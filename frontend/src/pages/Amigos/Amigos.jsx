@@ -25,7 +25,8 @@ const Amigos = () => {
       })
     }
     data()
-    console.log(requests)
+    
+    
     
   }, [])
 
@@ -37,7 +38,8 @@ const Amigos = () => {
 
       <div className={styles.AmigosListaTotal}>
         { requests && requests.map((request) => (
-            <FriendRequest key={request.idAmizade} idAmigo={request.idCriador}/>
+
+            <FriendRequest key={request.idAmizade} idAmigo={request.idCriador} idAmizade={request.idAmizade}/>
         ))}
         
       </div>  
