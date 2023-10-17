@@ -56,6 +56,29 @@
     background-color: #c3c3c3;
 }
 
+.friendsCont{
+    width: 80%;
+    display: flex;
+    
+}
+
+select{
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4f4688;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background-color: #c3c3c3;
+}
+
+option{
+    width: 100%;
+    border-radius: 0;
+}
+
 .formAgendar .inputsAgendar .agendamentoParticipantes{
     padding: 10px;
 }
@@ -73,6 +96,12 @@
     margin-bottom: 5px;
     transition: all .4s ease;
     cursor: pointer;
+}
+
+#btnAdd{
+    width: 19%;
+    height: 100%;
+    margin-left: 1%;
 }
 
 .formAgendar .formInputsAgendar button:hover{

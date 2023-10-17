@@ -13,8 +13,36 @@ import user2 from '../../assets/eu.jpeg'
 import user3 from '../../assets/eu.jpeg'
 import FriendBox from '../../components/FriendBox/FriendBox'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { useEffect } from 'react'
+import axios from 'axios'
+import Cookies from 'js-cookie'
 
 const Painel = () => {
+
+  const [friendList, setFriendList] = useState()
+  const idSession = Cookies.get("id")
+
+  useEffect(() => {
+    const initFriendList = async () => {
+      await axios({
+        method: "post",
+        url: "http://localhost:3333/friends/list",
+        data: {
+          "id": idSession
+        }
+        }).then((response) => {
+            if(!response.data) {
+              return
+            }
+            
+            setFriendList(response.data)
+        })
+    }
+
+    initFriendList()
+  }, [])
+
   return (
     <div className={styles.painel}>
 
@@ -62,11 +90,11 @@ const Painel = () => {
             <h2 className={styles.titleFriendsList}>Lista de Amigos</h2>
             <div className={styles.friendsCollection}>
               <div className={styles.friendsUserBox}>
-                <FriendBox img={user1} nome='Matheus Pitas Baptista' />
-                <FriendBox img={user1} nome='Matheus Pitas Baptista' />
-                <FriendBox img={user1} nome='Matheus Pitas Baptista' />
-                <FriendBox img={user1} nome='Matheus Pitas Baptista' />
-                <FriendBox img={user1} nome='Matheus Pitas Baptista' />
+                {
+                  friendList && friendList.map((friend) => (
+                    <FriendBox img={friend.avatar} nome={friend.nome} />
+                  ))
+                }
               </div>
             </div>
             
