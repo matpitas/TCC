@@ -1,10 +1,39 @@
+import axios from 'axios'
+import Cookies from 'js-cookie'
 import React from 'react'
+import { useState } from 'react'
+import { useEffect } from 'react'
 import BannerAgendamento from '../../assets/BannerAgendamento.png'
 import Avatar from '../../components/Avatar/Avatar'
 import AvatarPhoto from '../../components/AvatarPhoto/AvatarPhoto'
 import styles from './Agendar.module.css'
 
 const Agendar = () => {
+  
+  const [friendList, setFriendList] = useState()
+  const [participante, setParticipante] = useState()
+  const idSession = Cookies.get('id')
+
+  useEffect(() => {
+    const attAmigos = async () => {
+      await axios({
+        method: "post",
+        url: "http://localhost:3333/friends/list",
+        data: {
+          "id": idSession
+        }
+        }).then((response) => {
+            if(!response.data) {
+              return
+            }
+            
+            setFriendList(response.data)
+        })
+    }
+
+    attAmigos()
+  }, [])
+
   return (
     <div className={styles.agendamento}>
         <div className={styles.formAgendar}>
@@ -25,11 +54,21 @@ const Agendar = () => {
 
               <div className={styles.inputsAgendar}>
                 <label htmlFor="">Participantes</label> 
-                <input type="text" />
+                <div className={styles.friendsCont}>
+                  <select name="participantes"  id="">
+                    {
+                      friendList && friendList.map((friend) => (
+                        <option>{friend.nome}</option>
+                      ))
+                    }
+                  </select>
+                  <button id={styles.btnAdd} onClick={(e) => {}}>Adicionar</button>
+                </div>
                 <div className={styles.agendamentoParticipantes}>
                   <Avatar>
-                    <AvatarPhoto img={BannerAgendamento} nome="BannerAgendamento" />
-                    <AvatarPhoto img={BannerAgendamento} nome="BannerAgendamento" />
+                    {participante && participante.map((part) => (
+                      <AvatarPhoto img={part.avatar} nome={part.nome} />
+                    ))}
                   </Avatar>
                 </div>
               </div>
