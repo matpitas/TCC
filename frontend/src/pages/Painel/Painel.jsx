@@ -92,7 +92,7 @@ const Painel = () => {
               <div className={styles.friendsUserBox}>
                 {
                   friendList && friendList.map((friend) => (
-                    <FriendBox img={friend.avatar} nome={friend.nome} />
+                    <FriendBox  key={friend.idAmizade} img={friend.avatar} nome={friend.nome} />
                   ))
                 }
               </div>

@@ -22,8 +22,8 @@ const verifyAmigos = async (friends) => {
 
 const listAmigos = async (idUser) => {
     const { id } = idUser
-    const sql = "SELECT * FROM amigos WHERE (idCriador = ? OR idDestino = ?) and Status = 1"
-    const [friend] = await connection.execute(sql, [id,id])
+    const sql = "SELECT if(a.idCriador=?, u.nome, x.nome) as nome, if(a.idCriador=?, u.avatar, x.avatar) as avatar, a.idAmizade FROM amigos a LEFT JOIN usuarios u ON u.idUsuario = a.idDestino LEFT JOIN usuarios x ON x.idUsuario = a.idCriador WHERE a.status = 1 AND (a.idCriador = ? OR a.idDestino = ?);"
+    const [friend] = await connection.execute(sql, [id,id,id,id])
     return friend
 }
 
