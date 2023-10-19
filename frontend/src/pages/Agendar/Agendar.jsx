@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import BannerAgendamento from '../../assets/BannerAgendamento.png'
 import Avatar from '../../components/Avatar/Avatar'
 import AvatarPhoto from '../../components/AvatarPhoto/AvatarPhoto'
+import BoxSelect from '../../components/boxSelect/boxSelect'
 import styles from './Agendar.module.css'
 
 const Agendar = () => {
@@ -48,7 +49,7 @@ const Agendar = () => {
     const suggestions = friendList.filter((friends) => {
       return friends.nome.startsWith(value) 
     })
-
+    
     setSuggest(suggestions)
   }
 
@@ -64,10 +65,9 @@ const Agendar = () => {
 
           <div className={styles.formAgendarGroup}>
             <label htmlFor="">Jogo</label>
-            <input type="text" />
-            <div className={styles.suggestionsJogo}>
-
-            </div>
+            <select name="" id="">
+              
+            </select>
           </div>
           <div className={styles.formAgendarGroup}>
             <label htmlFor="">Horário</label>
@@ -75,9 +75,13 @@ const Agendar = () => {
           </div>
           <div className={styles.formAgendarGroup}>
             <label htmlFor="">Amigos</label>
-            <input type="text" />
-            <div className={styles.suggestionsJogo}>
-
+            <input type="text" onChange={(e) => handleSuggestion(e)}/>
+            <div className={styles.suggestionsAmigos}>
+              {
+                suggest?.map((friend) => (
+                  <h1>a</h1>
+                ))
+              }
             </div>
           </div>
 
