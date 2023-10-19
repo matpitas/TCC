@@ -4,10 +4,8 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import BannerAgendamento from '../../assets/BannerAgendamento.png'
-import Avatar from '../../components/Avatar/Avatar'
-import AvatarPhoto from '../../components/AvatarPhoto/AvatarPhoto'
-import BoxSelect from '../../components/boxSelect/boxSelect'
 import styles from './Agendar.module.css'
+import {toast} from 'react-toastify'
 
 const Agendar = () => {
   
@@ -30,7 +28,11 @@ const Agendar = () => {
         }
         }).then((response) => {
             if(!response.data) {
-              return
+              return toast.error(response.data.msg, {
+                position: "bottom-right",
+                autoClose: 5000,
+                theme: "dark",
+              });
             }
             
             setFriendList(response.data)
@@ -40,18 +42,18 @@ const Agendar = () => {
     attAmigos()
   }, [])
 
-  const handleSuggestion = (e) => {
-    e.preventDefault()
+  // const handleSuggestion = (e) => {
+  //   e.preventDefault()
 
-    const value = e.target.value
+  //   const value = e.target.value
 
     
-    const suggestions = friendList.filter((friends) => {
-      return friends.nome.startsWith(value) 
-    })
+  //   const suggestions = friendList.filter((friends) => {
+  //     return friends.nome.startsWith(value) 
+  //   })
     
-    setSuggest(suggestions)
-  }
+  //   setSuggest(suggestions)
+  // }
 
   return (
     <div className={styles.agendamento}>
