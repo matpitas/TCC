@@ -15,8 +15,10 @@ O intuito é fazer um site que serve como agendamento para que amigos consigam m
 
 ## Linguagens
 <div>
-  <img align="center" alt="Pit-React" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
-  <img align="center" alt="Rafa-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg">
+  <img align="center" alt="React" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
+  <img align="center" alt="Node" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg">
+
+  Node v18.16.0
 </div>
 <br><br>
 <h3>OffLine 🛑</h3>
