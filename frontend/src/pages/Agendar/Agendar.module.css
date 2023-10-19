@@ -1,119 +1,98 @@
 .agendamento{
-    width: 80%;
-    margin-left: 10%;
-    display: flex;
-    height: 90vh;
-    padding: 10px 0;
-}
-
-.formAgendar{
-    width: 65%;
-    background-color: #272727;
-    border-radius: 13px;
+    width: 90%;
+    margin-left: 5%;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    margin-right: 5%;
-}
-
-.formAgendar .formInputsAgendar{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-.formAgendar .inputsAgendar{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-}
-
-.formAgendar .formInputsAgendar h1{
-    text-align: center;
-    padding: 30px 0 0 0;
-    color: #A193FA;
-}
-
-.formAgendar .inputsAgendar label{
-    font-size: 16px;
-    padding: 10px;
-    font-weight: 500;
-    color: white;
-}
-
-.formAgendar .inputsAgendar input{
-    width: 80%;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #4f4688;
-    outline: none;
-    border: none;
-    border-radius: 6px;
-    background-color: #c3c3c3;
-}
-
-.friendsCont{
-    width: 80%;
-    display: flex;
-    
-}
-
-select{
-    width: 80%;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #4f4688;
-    outline: none;
-    border: none;
-    border-radius: 6px;
-    background-color: #c3c3c3;
-}
-
-option{
-    width: 100%;
-    border-radius: 0;
-}
-
-.formAgendar .inputsAgendar .agendamentoParticipantes{
-    padding: 10px;
-}
-
-.formAgendar .formInputsAgendar button{
-    width: 98%;
-    padding: 10px;
-    font-size: 18px;
-    font-weight: 700;
-    background-color: #1E1557;
-    color: #9487E3;
-    border: none;
-    border-radius: 6px;
-    outline: none;
-    margin-bottom: 5px;
-    transition: all .4s ease;
-    cursor: pointer;
-}
-
-#btnAdd{
-    width: 19%;
-    height: 100%;
-    margin-left: 1%;
-}
-
-.formAgendar .formInputsAgendar button:hover{
-    background-color: #9487E3;
-    color: #1E1557;
+    gap: 20px;
 }
 
 .bannerAgendar{
-    width: 10%;
-
+    width: 100%;
+    height: 30vh;
 }
 
 .bannerAgendar img{
     height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.formAgendar{
+    width: 100%;
+    background-color: #272727;
+    border-radius: 13px;
+}
+
+.title{
+    width: 80%;
+    margin-top: 30px;
+    margin-bottom: 3%;
+    margin-left: 10%;
+}
+
+.title h3 {
+    font-size: 2rem;
+    padding: 10px;
+    color: rgb(196, 196, 196);
+    font-weight: bold;
+    letter-spacing: -1px;
+    border-left: 5px solid #E58D3B;
+}
+
+.formAgendarGroup{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 10%;
+    padding: 15px 0;
+}
+
+.formAgendarGroup label{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(196, 196, 196);
+}
+
+.formAgendarGroup input {
+    width: 100%;
+    margin-top: 2%;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4f4688;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background-color: #c3c3c3;
+}
+
+.suggestionsJogo{
+    height: 30vh;
+    width: 100%;
+    background-color: #404040;
+    margin-top: 2%;
+}
+
+.confirmedFriends{
+    width: 80%;
+    margin-left: 10%;
+    background-color: #E58D3B;
+    height: 10vh;
+}
+
+.btnAgendamentos{
+    width: 80%;
+    margin: 2% 0 2% 10%;
+}
+
+.btnAgendamentos button{
+    background-color: #4f4688;
+    outline: none;
+    border: none;
+    color: #b1abd9;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 10px;
 }

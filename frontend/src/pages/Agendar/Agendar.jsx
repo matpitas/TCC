@@ -11,8 +11,13 @@ import styles from './Agendar.module.css'
 const Agendar = () => {
   
   const [friendList, setFriendList] = useState()
+  const [suggest, setSuggest] = useState()
   const [participante, setParticipante] = useState()
+  const [horario, setHorario] = useState()
+  const [jogo, setJogo] = useState()
   const idSession = Cookies.get('id')
+
+  
 
   useEffect(() => {
     const attAmigos = async () => {
@@ -34,51 +39,58 @@ const Agendar = () => {
     attAmigos()
   }, [])
 
+  const handleSuggestion = (e) => {
+    e.preventDefault()
+
+    const value = e.target.value
+
+    
+    const suggestions = friendList.filter((friends) => {
+      return friends.nome.startsWith(value) 
+    })
+
+    setSuggest(suggestions)
+  }
+
   return (
     <div className={styles.agendamento}>
-        <div className={styles.formAgendar}>
-  
-            <div className={styles.formInputsAgendar}>
-
-              <h1>Agendamento</h1>
-
-              <div className={styles.inputsAgendar}>
-                <label htmlFor="">Nome do Jogo</label> 
-                <input type="text" />
-              </div>
-
-              <div className={styles.inputsAgendar}>
-                <label htmlFor="">Data do Jogo</label> 
-                <input type="datetime-local" />
-              </div>
-
-              <div className={styles.inputsAgendar}>
-                <label htmlFor="">Participantes</label> 
-                <div className={styles.friendsCont}>
-                  <select name="participantes"  id="">
-                    {
-                      friendList && friendList.map((friend) => (
-                        <option>{friend.nome}</option>
-                      ))
-                    }
-                  </select>
-                  <button id={styles.btnAdd} onClick={(e) => {}}>Adicionar</button>
-                </div>
-                <div className={styles.agendamentoParticipantes}>
-                  <Avatar>
-                    {participante && participante.map((part) => (
-                      <AvatarPhoto img={part.avatar} nome={part.nome} />
-                    ))}
-                  </Avatar>
-                </div>
-              </div>
-
-              <button type="submit">Agendar</button>
-            </div>
-        </div>
         <div className={styles.bannerAgendar}>
           <img src={BannerAgendamento} alt="" />
         </div>
+        <div className={styles.formAgendar}>
+          <div className={styles.title}>
+            <h3>Agendamento</h3>
+          </div>
+
+          <div className={styles.formAgendarGroup}>
+            <label htmlFor="">Jogo</label>
+            <input type="text" />
+            <div className={styles.suggestionsJogo}>
+
+            </div>
+          </div>
+          <div className={styles.formAgendarGroup}>
+            <label htmlFor="">Horário</label>
+            <input type="text" />
+          </div>
+          <div className={styles.formAgendarGroup}>
+            <label htmlFor="">Amigos</label>
+            <input type="text" />
+            <div className={styles.suggestionsJogo}>
+
+            </div>
+          </div>
+
+          <div className={styles.confirmedFriends}>
+            a
+          </div>
+
+          <div className={styles.btnAgendamentos}>
+            <button>Agendar</button>
+          </div>
+
+        </div>
+        
     </div>
   )
 }
