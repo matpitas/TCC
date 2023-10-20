@@ -9,7 +9,7 @@ const path = require('path')
 
 const usersController = require('./controller/UsuariosController')
 const friendsController = require('./controller/AmigosController')
-const gamesController = require('./controller/JogosController')
+// const gamesController = require('./controller/JogosController')
 
 router.get("/", (require, response) => {
     response.send("oopioio")
@@ -37,7 +37,7 @@ router.get("/friends/request/accept/:id", friendsController.AcceptRequestControl
 
 
 // Rota de Jogos
-router.get("/games", gamesController.getAllJogosController)
+// router.get("/games", gamesController.getAllJogosController)
 
 
 

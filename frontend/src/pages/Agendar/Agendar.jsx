@@ -10,10 +10,8 @@ import {toast} from 'react-toastify'
 const Agendar = () => {
   
   const [friendList, setFriendList] = useState()
-  const [suggest, setSuggest] = useState()
-  const [participante, setParticipante] = useState()
-  const [horario, setHorario] = useState()
-  const [jogo, setJogo] = useState()
+  const [searchFriends, setSearchFriends] = useState("")
+  const [horario, setHorario] = useState("")
   const idSession = Cookies.get('id')
 
   
@@ -34,26 +32,21 @@ const Agendar = () => {
                 theme: "dark",
               });
             }
-            
             setFriendList(response.data)
+            console.log(friendList)
         })
     }
 
     attAmigos()
   }, [])
 
-  // const handleSuggestion = (e) => {
-  //   e.preventDefault()
+  const filteredAmigos = searchFriends?.length
+  ?  friendList.filter((friend) => friend?.nome?.includes(searchFriends))
+  :  null
 
-  //   const value = e.target.value
-
+  const handleSelecionar = (friend) => {
     
-  //   const suggestions = friendList.filter((friends) => {
-  //     return friends.nome.startsWith(value) 
-  //   })
-    
-  //   setSuggest(suggestions)
-  // }
+  }
 
   return (
     <div className={styles.agendamento}>
@@ -73,22 +66,25 @@ const Agendar = () => {
           </div>
           <div className={styles.formAgendarGroup}>
             <label htmlFor="">Horário</label>
-            <input type="text" />
+            <input type="text" onChange={(e) => setHorario(e.target.value)} value={horario} />
           </div>
           <div className={styles.formAgendarGroup}>
             <label htmlFor="">Amigos</label>
-            <input type="text" onChange={(e) => handleSuggestion(e)}/>
+            <input type="text" onChange={(e) => setSearchFriends(e.target.value)} value={searchFriends}/>
             <div className={styles.suggestionsAmigos}>
               {
-                suggest?.map((friend) => (
-                  <h1>a</h1>
+                filteredAmigos?.map((friend) => (
+                  <div key={friend.id}>
+                    <button onClick={() => handleSelecionar(friend)}>Favoritar</button>
+                    <h1>{friend.nome}</h1>
+                  </div>
                 ))
               }
             </div>
           </div>
 
           <div className={styles.confirmedFriends}>
-            a
+            
           </div>
 
           <div className={styles.btnAgendamentos}>
