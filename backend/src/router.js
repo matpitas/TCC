@@ -9,7 +9,7 @@ const path = require('path')
 
 const usersController = require('./controller/UsuariosController')
 const friendsController = require('./controller/AmigosController')
-// const gamesController = require('./controller/JogosController')
+const gamesController = require('./controller/JogosController')
 
 router.get("/", (require, response) => {
     response.send("oopioio")
@@ -26,7 +26,6 @@ router.put("/users/put/:id", usersController.updatedUserController)
 router.post("/users/search/:id", usersController.getUsersForSearchController)
 router.use("/uploads", express.static(path.resolve('uploads')))
 
-
 // Rotas de Amigos
 router.post("/friends/create", friendsController.addAmigoController)
 router.post("/friends/verify", friendsController.verifyAmigosController)
@@ -37,7 +36,8 @@ router.get("/friends/request/accept/:id", friendsController.AcceptRequestControl
 
 
 // Rota de Jogos
-// router.get("/games", gamesController.getAllJogosController)
+router.get("/game", gamesController.getAllJogosController)
+router.post("/game/create", upload.single('imagemJogo'), gamesController.addJogoController)
 
 
 

@@ -32,17 +32,16 @@ const AddAmigos = ({avatar, nome, idUsuario}) => {
           idUsuario
       }
   }).then(async (response) => {
-
         if(response.data[0]?.status == 0){
           toast.error("Já foi enviado uma solicitação.")
           setAdd(false)
-          return
+          return;
         }
 
         if(response.data[0]?.status == 1){
           toast.error("Amizade já existe.")
           setAdd(false)
-          return
+          return;
         }
 
         await axios({

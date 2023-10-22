@@ -48,13 +48,22 @@
     padding: 15px 0;
 }
 
-.formAgendarGroup label{
+.formAgendarGroupHorario{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    width: 80%;
+    margin-left: 10%;
+    padding: 15px 0;
+}
+
+.formAgendarGroupHorario label{
     font-size: 1.5rem;
     font-weight: 600;
     color: rgb(196, 196, 196);
 }
 
-.formAgendarGroup input {
+.formAgendarGroupHorario input, select {
     width: 100%;
     margin-top: 2%;
     padding: 10px;
@@ -67,6 +76,29 @@
     background-color: #c3c3c3;
 }
 
+.formAgendarGroup label{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(196, 196, 196);
+}
+
+.formAgendarGroup input, select {
+    width: 100%;
+    margin-top: 2%;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4f4688;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background-color: #c3c3c3;
+}
+
+.formAgendarGroup .agendarHorarios{
+    display: flex;
+}
+
 .suggestionsJogo{
     height: 30vh;
     width: 100%;
@@ -75,20 +107,73 @@
 }
 
 .suggestionsAmigos{
-    height: 30vh;
+    height: 40vh;
     width: 100%;
-    background-color: #404040;
     margin-top: 2%;
     display: flex;
-    overflow-x: scroll;
+    flex-direction: column;
+    overflow-y: scroll;
     gap: 2%;
 }
 
-.confirmedFriends{
-    width: 80%;
-    margin-left: 10%;
-    background-color: #E58D3B;
-    height: 10vh;
+.suggestionsAmigos .suggestionsAmigosItem{
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #303030;
+}
+
+.suggestionsAmigos .suggestionsAmigosItemSelected{
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #263d25;
+}
+
+.suggestionsAmigos .suggestionsAmigosItem button{
+    width: 7%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: #484848;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+.suggestionsAmigos .suggestionsAmigosItemSelected button{
+    width: 7%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: #1f503e;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: rgb(89, 158, 136);
+}
+
+.suggestionsAmigos .suggestionsAmigosItem h1{
+    font-size: 1rem;
+    margin-left: 2%;
+    color: white;
+    font-weight: 200;
+}
+
+.suggestionsAmigos .suggestionsAmigosItemSelected h1{
+    font-size: 1rem;
+    margin-left: 2%;
+    color: rgb(89, 158, 136);
+    font-weight: 200;
 }
 
 .btnAgendamentos{
@@ -105,4 +190,11 @@
     width: 100%;
     font-size: 1.5rem;
     padding: 10px;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+
+.btnAgendamentos button:hover{
+    color: #4f4688;
+    background-color: #b1abd9;
 }
