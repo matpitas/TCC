@@ -21,6 +21,8 @@ import Cookies from 'js-cookie'
 const Painel = () => {
 
   const [friendList, setFriendList] = useState()
+  const [nextGame, setNextGame] = useState()
+  const [nextFriends, setNextFriends] = useState()
   const idSession = Cookies.get("id")
 
   useEffect(() => {
@@ -40,9 +42,25 @@ const Painel = () => {
         })
     }
 
+    
+    const initNextGame = async () => {
+      await axios({
+        method: "get",
+        url: "http://localhost:3333/scheduling/next/" + idSession
+        }).then(async (response) => {
+            if(!response.data) {
+              return
+            }
+            setNextGame(response?.data[0])
+        })
+    }
+
+
+    initNextGame()
     initFriendList()
   }, [])
 
+  console.log(nextFriends)
   return (
     <div className={styles.painel}>
 
@@ -71,6 +89,21 @@ const Painel = () => {
           </div>
         </div>
         
+        {
+          nextGame ?
+          <div className={styles.proximaJogatina} style={{ backgroundImage: `linear-gradient(#00000000 0%, #3E2CAF 90.96%), url("http://localhost:3333/uploads/${nextGame.imagemJogo}")` , backgroundSize: 'cover'}}>
+          <h2>Próxima jogatina</h2>
+          <h1 style={{textTransform: 'capitalize'}}>{nextGame.nomeJogo}</h1>
+          <p>{nextGame.iniciaEm}</p>
+          <div className={styles.amigosProximaJogatina}>
+            <Avatar>
+                    <AvatarPhoto img={user1} nome="Rafaella Ballerini"/>
+                    <AvatarPhoto img={user2} nome="Guilherme Buzatto"/>
+                    <AvatarPhoto img={user3} nome="Lucas de Almeida"/>
+            </Avatar> 
+          </div>
+        </div>
+        :
         <div className={styles.proximaJogatina} style={{ backgroundImage: `linear-gradient(#00000000 0%, #3E2CAF 90.96%), url(${prox})` , backgroundSize: 'cover'}}>
           <h2>Próxima jogatina</h2>
           <h1>Baldur's Gate 3</h1>
@@ -83,6 +116,7 @@ const Painel = () => {
             </Avatar> 
           </div>
         </div>
+        }
       </div>
 
       <div className={styles.painelBaixo}>

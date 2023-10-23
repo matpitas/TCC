@@ -78,7 +78,7 @@ const Agendar = () => {
     setFriendList(selected)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     const selectedFriends = friendList.filter((friend) => friend?.isSelected)
@@ -100,13 +100,54 @@ const Agendar = () => {
       });
     }
 
+    await axios({
+      method: "post",
+      url: "http://localhost:3333/scheduling/create",
+      data: {
+        horarioInicio,
+        horarioTermino,
+        jogos,
+        idSession,
+      }
+      }).then((response) => {
+          if(!response.data) {
+            return toast.error(response.data.msg, {
+              position: "bottom-right",
+              autoClose: 5000,
+              theme: "dark",
+            });
+          }
+          const agendamentoId = response.data.ID
+          selectedFriends.forEach(async (friends) => {
+            const amigoId = friends.idAmigo
+            await axios({
+              method: "post",
+              url: "http://localhost:3333/participant/create",
+              data: {
+                amigoId,
+                agendamentoId
+              }
+              }).then((response) => {
+                  if(!response.data) {
+                    return toast.error(response.data.msg, {
+                      position: "bottom-right",
+                      autoClose: 5000,
+                      theme: "dark",
+                    });
+                  }
 
-    console.log({
-      "jogo": jogos,
-      "Inicio": horarioInicio,
-      "termino": horarioTermino,
-      "amigos": selectedFriends
-    })
+                  
+              })
+          })
+          return toast.success("Agendamento Criado!", {
+            position: "bottom-right",
+            autoClose: 5000,
+            theme: "dark",
+          });
+      })
+
+    
+    
 
 
   }
