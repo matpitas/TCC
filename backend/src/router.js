@@ -10,6 +10,8 @@ const path = require('path')
 const usersController = require('./controller/UsuariosController')
 const friendsController = require('./controller/AmigosController')
 const gamesController = require('./controller/JogosController')
+const schedulingController = require('./controller/AgendamentoController')
+const participantController = require('./controller/ParticipantesController')
 
 router.get("/", (require, response) => {
     response.send("oopioio")
@@ -33,13 +35,18 @@ router.post("/friends/list", friendsController.listAmigosController)
 router.post("/friends/request", friendsController.listRequestController)
 router.get("/friends/request/accept/:id", friendsController.AcceptRequestController)
 
-
-
 // Rota de Jogos
 router.get("/game", gamesController.getAllJogosController)
 router.post("/game/create", upload.single('imagemJogo'), gamesController.addJogoController)
 
+// Rota de Agendamento
+router.post("/scheduling/create", schedulingController.addAgendamentoController)
+router.get("/scheduling/:id", schedulingController.getAgendamentoByIdController)
+router.get("/scheduling/next/:id", schedulingController.getNearAgendamentoById)
 
+// Rota de Participante
+router.post("/participant/create", participantController.addParticipantesController)
+router.post("/participant/:id", participantController.getParticipantesController)
 
 module.exports = router
 
