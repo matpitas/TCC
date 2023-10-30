@@ -3,14 +3,11 @@ import Avatar from '../../components/Avatar/Avatar'
 import AvatarPhoto from '../../components/AvatarPhoto/AvatarPhoto'
 import styles from './Painel.module.css'
 
-import imagem from '../../assets/imagem.jpeg'
-import prox from '../../assets/bald.webp'
+import imagem from '../../assets/Imagem.png'
 import BannerIniciar from '../../assets/bannerAgendar.png'
 
-// teste
-import user1 from '../../assets/eu.jpeg'
-import user2 from '../../assets/eu.jpeg'
-import user3 from '../../assets/eu.jpeg'
+import { format } from "date-fns"
+
 import FriendBox from '../../components/FriendBox/FriendBox'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
@@ -22,8 +19,10 @@ const Painel = () => {
 
   const [friendList, setFriendList] = useState()
   const [nextGame, setNextGame] = useState()
+  const [lastGame, setLastGame] = useState()
   const [nextFriends, setNextFriends] = useState()
-  const idSession = Cookies.get("id")
+  const [lastFriends, setLastFriends] = useState()
+  const idSession = Cookies.get("id") 
 
   useEffect(() => {
     const initFriendList = async () => {
@@ -42,30 +41,138 @@ const Painel = () => {
         })
     }
 
-    
     const initNextGame = async () => {
       await axios({
         method: "get",
         url: "http://localhost:3333/scheduling/next/" + idSession
-        }).then(async (response) => {
-            if(!response.data) {
+        }).then((response) => {
+          
+            if(response.data.length == 0) {
+              return false;
+            }
+            
+            const dadosNextGame = response?.data[0]
+            const iniciaEmFormat = new Date(dadosNextGame?.iniciaEm)
+            const dataFormatada = format(iniciaEmFormat, "dd/MM/yyyy HH:mm:ss")
+            
+            if(dadosNextGame){
+              dadosNextGame.iniciaEm = dataFormatada
+            }
+              
+            setNextGame(dadosNextGame)   
+        })
+    }
+
+    const initLastGame = async () => {
+      await axios({
+        method: "get",
+        url: "http://localhost:3333/scheduling/last/" + idSession
+        }).then((response) => {
+            if(!response.data[0]) {
               return
             }
-            setNextGame(response?.data[0])
+            const dadosLastGame = response?.data[0]
+            const iniciaEmFormat = new Date(dadosLastGame?.iniciaEm)
+            const dataFormatada = format(iniciaEmFormat, "dd/MM/yyyy HH:mm:ss")
+            
+            if(dadosLastGame){
+              dadosLastGame.iniciaEm = dataFormatada
+            }
+            
+            setLastGame(dadosLastGame)
         })
     }
 
 
-    initNextGame()
-    initFriendList()
+    const initPromises = Promise.all([initFriendList(), initNextGame(), initLastGame()])
+
+    initPromises
+                .then(responses => {
+                  return
+                })
+                .catch(error => {
+                  console.error(error);
+                });
+    
   }, [])
 
-  console.log(nextFriends)
+  useEffect(() => {
+    if(nextGame){
+      const initNextFriends = async () => {
+        await axios({
+          method: "post",
+          url: "http://localhost:3333/participant",
+          data: {
+            "idAgendamento" : nextGame?.idAgendamento
+          }
+          }).then(async (response) => {
+              if(!response.data) {
+                return
+              }
+              setNextFriends(response.data)
+              
+          })
+      }
+      initNextFriends()
+    }
+
+    
+  }, [nextGame])
+
+  useEffect(() => {
+    if(lastGame){
+      const initLastFriends = async () => {
+        await axios({
+          method: "post",
+          url: "http://localhost:3333/participant",
+          data: {
+            "idAgendamento" : lastGame?.idAgendamento
+          }
+          }).then(async (response) => {
+              if(!response.data) {
+                return
+              }
+              setLastFriends(response.data)
+              
+          })
+      }
+      initLastFriends()
+    }
+
+    
+  }, [lastGame])
+
   return (
     <div className={styles.painel}>
 
       <div className={styles.painelAlto}>
 
+        {
+          lastGame ? 
+          <div className={styles.ultimoJogo}>
+          <div className={styles.imagemUltimoJogo}>
+            <div style={{ backgroundImage: `linear-gradient(60deg,#00000000 0%, #000 90%), url("http://localhost:3333/uploads/${lastGame.imagemJogo}")` , backgroundSize: 'cover'}}>
+
+            </div>
+          </div>
+          <div className={styles.contextoUltimoJogo}>
+            <p>Último jogo</p>
+            <div className={styles.titleUltimoJogo}>
+              <h1>{lastGame.nomeJogo}</h1>
+              <span>{lastGame.iniciaEm}</span>
+            </div>
+            <div className={styles.amigosUltimoJogo}>
+                <Avatar>
+                    {
+                      lastFriends?.map(friend => (
+                        <AvatarPhoto key={friend.nome} img={friend.avatar} nome={friend.nome} />
+                      ))
+                    }
+                </Avatar> 
+            </div>
+          </div>
+        </div>
+        :
         <div className={styles.ultimoJogo}>
           <div className={styles.imagemUltimoJogo}>
             <div style={{ backgroundImage: `linear-gradient(60deg,#00000000 0%, #000 90%), url(${imagem})` , backgroundSize: 'cover'}}>
@@ -75,19 +182,21 @@ const Painel = () => {
           <div className={styles.contextoUltimoJogo}>
             <p>Último jogo</p>
             <div className={styles.titleUltimoJogo}>
-              <h1>Red Dead Redemption 2</h1>
-              <span>Jogo de Ação-Aventura</span>
+              <h1>Há algo de errado🤔</h1>
+              <span>Não conseguimos buscar nenhum agendamento</span>
             </div>
             <div className={styles.amigosUltimoJogo}>
                 <Avatar>
-                  <AvatarPhoto img={user1} nome="Rafaella Ballerini" />
-                  <AvatarPhoto img={user2} nome="Guilherme Buzatto"/>
-                  <AvatarPhoto img={user3} nome="Lucas de Almeida" />
+                    {
+                      lastFriends?.map(friend => (
+                        <AvatarPhoto key={friend.nome} img={friend.avatar} nome={friend.nome} />
+                      ))
+                    }
                 </Avatar> 
             </div>
-            <button className={styles.botaoUltimoJogo}>Jogar Novamente</button>
           </div>
         </div>
+        }
         
         {
           nextGame ?
@@ -97,23 +206,20 @@ const Painel = () => {
           <p>{nextGame.iniciaEm}</p>
           <div className={styles.amigosProximaJogatina}>
             <Avatar>
-                    <AvatarPhoto img={user1} nome="Rafaella Ballerini"/>
-                    <AvatarPhoto img={user2} nome="Guilherme Buzatto"/>
-                    <AvatarPhoto img={user3} nome="Lucas de Almeida"/>
+                    {
+                      nextFriends?.map(friend => (
+                        <AvatarPhoto key={friend.nome} img={friend.avatar} nome={friend.nome} />
+                      ))
+                    }
             </Avatar> 
           </div>
         </div>
         :
-        <div className={styles.proximaJogatina} style={{ backgroundImage: `linear-gradient(#00000000 0%, #3E2CAF 90.96%), url(${prox})` , backgroundSize: 'cover'}}>
+        <div className={styles.proximaJogatina} style={{ backgroundImage: `linear-gradient(#00000000 0%, #3E2CAF 90.96%), url(${imagem})` , backgroundSize: 'cover'}}>
           <h2>Próxima jogatina</h2>
-          <h1>Baldur's Gate 3</h1>
-          <p>01/09/2023 22:30</p>
-          <div className={styles.amigosProximaJogatina}>
-            <Avatar>
-                    <AvatarPhoto img={user1} nome="Rafaella Ballerini"/>
-                    <AvatarPhoto img={user2} nome="Guilherme Buzatto"/>
-                    <AvatarPhoto img={user3} nome="Lucas de Almeida"/>
-            </Avatar> 
+          <h1>Oops!</h1>
+          <p>Não foi encontrado nenhum agendamento</p>
+          <div className={styles.amigosProximaJogatina}> 
           </div>
         </div>
         }

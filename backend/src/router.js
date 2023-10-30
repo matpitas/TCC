@@ -42,11 +42,14 @@ router.post("/game/create", upload.single('imagemJogo'), gamesController.addJogo
 // Rota de Agendamento
 router.post("/scheduling/create", schedulingController.addAgendamentoController)
 router.get("/scheduling/:id", schedulingController.getAgendamentoByIdController)
-router.get("/scheduling/next/:id", schedulingController.getNearAgendamentoById)
+router.get("/scheduling/next/:id", schedulingController.getNearAgendamentoByIdController)
+router.get("/scheduling/last/:id", schedulingController.getLastAgendamentoByIdController)
 
 // Rota de Participante
 router.post("/participant/create", participantController.addParticipantesController)
-router.post("/participant/:id", participantController.getParticipantesController)
+router.post("/participant", participantController.getParticipantesController)
+router.get("/participant/schedule/:id", participantController.getSchedulingByParticipantsController)
+router.get("/participant/schedule/pending/:id", participantController.gePendingSchedulingByParticipantsController)
 
 module.exports = router
 

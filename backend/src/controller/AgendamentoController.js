@@ -11,9 +11,15 @@ const getAgendamentoByIdController = async (request, response) => {
     return response.status(200).json(agendamento)
 }
 
-const getNearAgendamentoById = async (request, response) => {
+const getNearAgendamentoByIdController = async (request, response) => {
     const { id } = request.params
     const agendamento = await AgendamentoModel.getNearAgendamentoById(id)
+    return response.status(200).json(agendamento)
+}
+
+const getLastAgendamentoByIdController = async (request, response) => {
+    const { id } = request.params
+    const agendamento = await AgendamentoModel.getLastAgendamentoById(id)
     return response.status(200).json(agendamento)
 }
 
@@ -21,5 +27,6 @@ const getNearAgendamentoById = async (request, response) => {
 module.exports = {
     addAgendamentoController,
     getAgendamentoByIdController,
-    getNearAgendamentoById,
+    getNearAgendamentoByIdController,
+    getLastAgendamentoByIdController,
 }
