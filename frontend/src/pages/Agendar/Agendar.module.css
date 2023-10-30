@@ -123,6 +123,7 @@
     align-items: center;
     border-radius: 4px;
     background-color: #303030;
+    cursor: pointer;
 }
 
 .suggestionsAmigos .suggestionsAmigosItemSelected{
@@ -132,6 +133,7 @@
     align-items: center;
     border-radius: 4px;
     background-color: #263d25;
+    cursor: pointer;
 }
 
 .suggestionsAmigos .suggestionsAmigosItem button{

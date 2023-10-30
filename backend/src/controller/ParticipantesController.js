@@ -16,9 +16,15 @@ const getSchedulingByParticipantsController = async (request, response) => {
     return response.status(200).json(participantes)
 }
 
-const gePendingSchedulingByParticipantsController = async (request, response) => {
+const getPendingSchedulingByParticipantsController = async (request, response) => {
     const { id } = request.params
-    const participantes = await ParticipantesModel.gePendingSchedulingByParticipants(id)
+    const participantes = await ParticipantesModel.getPendingSchedulingByParticipants(id)
+    return response.status(200).json(participantes)
+}
+
+const putPendingSchedulingController = async (request, response) => {
+    const { id } = request.params
+    const participantes = await ParticipantesModel.putPendingScheduling(id, request.body)
     return response.status(200).json(participantes)
 }
 
@@ -26,5 +32,6 @@ module.exports = {
     addParticipantesController,
     getParticipantesController,
     getSchedulingByParticipantsController,
-    gePendingSchedulingByParticipantsController,
+    getPendingSchedulingByParticipantsController,
+    putPendingSchedulingController
 }

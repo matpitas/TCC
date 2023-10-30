@@ -49,7 +49,8 @@ router.get("/scheduling/last/:id", schedulingController.getLastAgendamentoByIdCo
 router.post("/participant/create", participantController.addParticipantesController)
 router.post("/participant", participantController.getParticipantesController)
 router.get("/participant/schedule/:id", participantController.getSchedulingByParticipantsController)
-router.get("/participant/schedule/pending/:id", participantController.gePendingSchedulingByParticipantsController)
+router.get("/participant/schedule/pending/:id", participantController.getPendingSchedulingByParticipantsController)
+router.put("/participant/schedule/response/:id", participantController.putPendingSchedulingController)
 
 module.exports = router
 
