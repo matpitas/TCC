@@ -20,5 +20,15 @@ O intuito é fazer um site que serve como agendamento para que amigos consigam m
 
   Node v18.16.0
 </div>
+
+## Banco de Dados
+<div>
+  <img align="center" alt="Mysql" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg">
+  
+  Versão do servidor: 10.4.28-MariaDB
+  Versão do PHP: 8.1.17
+  
+  
+</div>
 <br><br>
 <h3>OffLine 🛑</h3>
