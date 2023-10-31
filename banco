@@ -1,0 +1,198 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 31/10/2023 às 11:52
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.1.17
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `syncfriends`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `agendamentos`
+--
+
+CREATE TABLE `agendamentos` (
+  `idAgendamento` int(11) NOT NULL,
+  `usuarioCriador` int(11) NOT NULL,
+  `iniciaEm` datetime NOT NULL,
+  `terminaEm` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `idJogo` int(11) NOT NULL,
+  `criadoEm` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `amigos`
+--
+
+CREATE TABLE `amigos` (
+  `idAmizade` int(11) NOT NULL,
+  `idCriador` int(11) NOT NULL,
+  `idDestino` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `criadoEm` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `amigos`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `jogos`
+--
+
+CREATE TABLE `jogos` (
+  `idJogo` int(11) NOT NULL,
+  `nomeJogo` varchar(255) NOT NULL,
+  `imagemJogo` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `jogos`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `participantes`
+--
+
+CREATE TABLE `participantes` (
+  `idParticipante` int(11) NOT NULL,
+  `idAgendamento` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `idUsuario` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `criadoEm` datetime NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `avatar` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices de tabela `agendamentos`
+--
+ALTER TABLE `agendamentos`
+  ADD PRIMARY KEY (`idAgendamento`),
+  ADD KEY `usuarioCriador` (`usuarioCriador`),
+  ADD KEY `idJogo` (`idJogo`);
+
+--
+-- Índices de tabela `amigos`
+--
+ALTER TABLE `amigos`
+  ADD PRIMARY KEY (`idAmizade`),
+  ADD KEY `IdCriador` (`idCriador`),
+  ADD KEY `IdDestino` (`idDestino`);
+
+--
+-- Índices de tabela `jogos`
+--
+ALTER TABLE `jogos`
+  ADD PRIMARY KEY (`idJogo`);
+
+--
+-- Índices de tabela `participantes`
+--
+ALTER TABLE `participantes`
+  ADD PRIMARY KEY (`idParticipante`);
+
+--
+-- Índices de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`idUsuario`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `agendamentos`
+--
+ALTER TABLE `agendamentos`
+  MODIFY `idAgendamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `amigos`
+--
+ALTER TABLE `amigos`
+  MODIFY `idAmizade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT de tabela `jogos`
+--
+ALTER TABLE `jogos`
+  MODIFY `idJogo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `participantes`
+--
+ALTER TABLE `participantes`
+  MODIFY `idParticipante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `agendamentos`
+--
+ALTER TABLE `agendamentos`
+  ADD CONSTRAINT `agendamentos_ibfk_1` FOREIGN KEY (`usuarioCriador`) REFERENCES `usuarios` (`idUsuario`),
+  ADD CONSTRAINT `agendamentos_ibfk_2` FOREIGN KEY (`idJogo`) REFERENCES `jogos` (`idJogo`);
+
+--
+-- Restrições para tabelas `amigos`
+--
+ALTER TABLE `amigos`
+  ADD CONSTRAINT `amigos_ibfk_1` FOREIGN KEY (`IdCriador`) REFERENCES `usuarios` (`idUsuario`),
+  ADD CONSTRAINT `amigos_ibfk_2` FOREIGN KEY (`IdDestino`) REFERENCES `usuarios` (`idUsuario`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
