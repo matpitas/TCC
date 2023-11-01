@@ -15,6 +15,7 @@ import useAuthContext from '../../Hooks/useAuthContext'
 import useUserContext from '../../Hooks/useUserContext'
 import Cookies from 'js-cookie'
 import { MdPersonSearch } from 'react-icons/md'
+import { RiFileList3Fill } from 'react-icons/ri'
 
 const Navbar = () => {
 
@@ -58,6 +59,8 @@ const Navbar = () => {
               
               {login && <NavLink data-tooltip-id="BuscarAmigos" data-tooltip-content="Buscar Amigos" to="/buscaamigos" className={(({isActive}) => (isActive ? styles.active : ''))}> <MdPersonSearch/> </NavLink>}
 
+              {login && <NavLink data-tooltip-id="ListarAgendamentos" data-tooltip-content="Listar Agendamentos" to="/listaagendamentos" className={(({isActive}) => (isActive ? styles.active : ''))}> <RiFileList3Fill/> </NavLink>}
+
             </div>
             <div className={styles.entrar} onClick={() => {removeSessao()}}>
               {Greeting} 
@@ -68,6 +71,7 @@ const Navbar = () => {
             <Tooltip id="Notificacoes" />
             <Tooltip id="AdicionarAmigos" /> 
             <Tooltip id="BuscarAmigos" /> 
+            <Tooltip id="ListarAgendamentos" /> 
 
         </div>
   )

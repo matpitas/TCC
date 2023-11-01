@@ -38,6 +38,7 @@
     color: #E58D3B;
     font-size: 1.125rem;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .contentNotification p{

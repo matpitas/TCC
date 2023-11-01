@@ -44,6 +44,7 @@ router.post("/scheduling/create", schedulingController.addAgendamentoController)
 router.get("/scheduling/:id", schedulingController.getAgendamentoByIdController)
 router.get("/scheduling/next/:id", schedulingController.getNearAgendamentoByIdController)
 router.get("/scheduling/last/:id", schedulingController.getLastAgendamentoByIdController)
+router.get("/scheduling/verify/:id", schedulingController.verifyStatusAgendamentoController)
 
 // Rota de Participante
 router.post("/participant/create", participantController.addParticipantesController)

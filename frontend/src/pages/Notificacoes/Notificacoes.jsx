@@ -9,6 +9,7 @@ import axios from 'axios'
 const Notificacoes = () => {
   
   const [notificacoes, setNotificacoes] = useState()
+  const [loader, setLoader] = useState(false)
   const idSession = Cookies.get("id") 
 
   useEffect(() => {
@@ -22,12 +23,12 @@ const Notificacoes = () => {
     }
 
     initNotification()
-  }, [])
+  }, [loader])
 
   return (
     <div className={styles.contentNotif}>
       {notificacoes?.map(notif => (
-        <Notification key={notif.idParticipante} criador={notif.nome} jogo={notif.nomeJogo} iniciaEm={notif.iniciaEm} idParticipante={notif.idParticipante} />
+        <Notification key={notif.idParticipante} idAgendamento={notif.idAgendamento} criador={notif.nome} jogo={notif.nomeJogo} setLoader={setLoader} loader={loader} iniciaEm={notif.iniciaEm} idParticipante={notif.idParticipante} />
       ))}
     </div>
   )

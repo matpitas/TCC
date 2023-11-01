@@ -23,10 +23,17 @@ const getLastAgendamentoByIdController = async (request, response) => {
     return response.status(200).json(agendamento)
 }
 
+const verifyStatusAgendamentoController = async (request, response) => {
+    const { id } = request.params
+    const agendamento = await AgendamentoModel.verifyStatusAgendamento(id)
+    return response.status(200).json(agendamento)
+}
+
 
 module.exports = {
     addAgendamentoController,
     getAgendamentoByIdController,
     getNearAgendamentoByIdController,
     getLastAgendamentoByIdController,
+    verifyStatusAgendamentoController,
 }
