@@ -11,21 +11,21 @@ const addAgendamento = async (dados) => {
 }
 
 const getAgendamentoById = async (id) => {
-    const query = 'SELECT * FROM agendamentos a, jogos j, participantes p WHERE a.idJogo = j.idJogo and p.`idAgendamento` = a.`idAgendamento` and (a.usuarioCriador = ?  or p.`idUsuario` = ?) and a.iniciaEm > NOW() GROUP BY a.idAgendamento ORDER BY a.iniciaEm ASC'
+    const query = 'SELECT * FROM agendamentos a, jogos j, participantes p WHERE a.idJogo = j.idJogo and p.`idAgendamento` = a.`idAgendamento` and p.status = 1 and (a.usuarioCriador = ?  or p.`idUsuario` = ?) and a.iniciaEm > NOW() GROUP BY a.idAgendamento ORDER BY a.iniciaEm ASC'
 
     const [createdAgendamento] = await connection.execute(query,[id, id])
     return createdAgendamento
 }
 
 const getNearAgendamentoById = async (id) => {
-    const query = 'SELECT * FROM agendamentos a, jogos j, participantes p WHERE a.idJogo = j.idJogo and p.`idAgendamento` = a.`idAgendamento` and (a.usuarioCriador = ?  or p.`idUsuario` = ?) and a.status = 1 and a.iniciaEm > NOW()  ORDER BY `iniciaEm` asc LIMIT 1 '
+    const query = 'SELECT * FROM agendamentos a, jogos j, participantes p WHERE a.idJogo = j.idJogo and p.`idAgendamento` = a.`idAgendamento` and p.status = 1 and (a.usuarioCriador = ?  or p.`idUsuario` = ?) and a.status = 1 and a.iniciaEm > NOW()  ORDER BY `iniciaEm` asc LIMIT 1 '
 
     const [createdAgendamento] = await connection.execute(query,[id, id])
     return createdAgendamento
 }
 
 const getLastAgendamentoById = async (id) => {
-    const query = 'SELECT j.nomeJogo, j.imagemJogo, a.idAgendamento, a.iniciaEm FROM agendamentos a, jogos j, participantes p WHERE a.idJogo = j.idJogo and p.`idAgendamento` = a.`idAgendamento` and (a.usuarioCriador = ?  or p.`idUsuario` = ?) and a.status = 1 and a.iniciaEm < NOW()  ORDER BY `iniciaEm` DESC LIMIT 1'
+    const query = 'SELECT j.nomeJogo, j.imagemJogo, a.idAgendamento, a.iniciaEm FROM agendamentos a, jogos j, participantes p WHERE a.idJogo = j.idJogo and p.`idAgendamento` = a.`idAgendamento` and p.status = 1 and (a.usuarioCriador = ?  or p.`idUsuario` = ?) and a.status = 2 and a.iniciaEm < NOW()  ORDER BY `iniciaEm` DESC LIMIT 1'
 
     const [createdAgendamento] = await connection.execute(query,[id,id])
     return createdAgendamento

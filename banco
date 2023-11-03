@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31/10/2023 às 11:52
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.1.17
+-- Generation Time: Nov 03, 2023 at 03:33 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `syncfriends`
+-- Database: `syncfriends`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `agendamentos`
+-- Table structure for table `agendamentos`
 --
 
 CREATE TABLE `agendamentos` (
@@ -37,11 +37,10 @@ CREATE TABLE `agendamentos` (
   `criadoEm` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `amigos`
+-- Table structure for table `amigos`
 --
 
 CREATE TABLE `amigos` (
@@ -49,65 +48,54 @@ CREATE TABLE `amigos` (
   `idCriador` int(11) NOT NULL,
   `idDestino` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `criadoEm` datetime NOT NULL
+  `CriadoEm` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `amigos`
---
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `jogos`
+-- Table structure for table `jogos`
 --
 
 CREATE TABLE `jogos` (
   `idJogo` int(11) NOT NULL,
   `nomeJogo` varchar(255) NOT NULL,
-  `imagemJogo` varchar(500) NOT NULL
+  `imagemJogo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `jogos`
---
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `participantes`
+-- Table structure for table `participantes`
 --
 
 CREATE TABLE `participantes` (
   `idParticipante` int(11) NOT NULL,
   `idAgendamento` int(11) NOT NULL,
   `idUsuario` int(11) NOT NULL,
-  `status` tinyint(1) NOT NULL
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
   `idUsuario` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `senha` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
   `criadoEm` datetime NOT NULL,
   `email` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `avatar` varchar(255) NOT NULL
+  `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Indexes for dumped tables
+--
 
 --
--- Índices para tabelas despejadas
---
-
---
--- Índices de tabela `agendamentos`
+-- Indexes for table `agendamentos`
 --
 ALTER TABLE `agendamentos`
   ADD PRIMARY KEY (`idAgendamento`),
@@ -115,7 +103,7 @@ ALTER TABLE `agendamentos`
   ADD KEY `idJogo` (`idJogo`);
 
 --
--- Índices de tabela `amigos`
+-- Indexes for table `amigos`
 --
 ALTER TABLE `amigos`
   ADD PRIMARY KEY (`idAmizade`),
@@ -123,74 +111,98 @@ ALTER TABLE `amigos`
   ADD KEY `IdDestino` (`idDestino`);
 
 --
--- Índices de tabela `jogos`
+-- Indexes for table `jogos`
 --
 ALTER TABLE `jogos`
-  ADD PRIMARY KEY (`idJogo`);
+  ADD PRIMARY KEY (`idJogo`),
+  ADD UNIQUE KEY `nomeJogo` (`nomeJogo`);
 
 --
--- Índices de tabela `participantes`
+-- Indexes for table `participantes`
 --
 ALTER TABLE `participantes`
-  ADD PRIMARY KEY (`idParticipante`);
+  ADD PRIMARY KEY (`idParticipante`),
+  ADD KEY `idAgendamento` (`idAgendamento`),
+  ADD KEY `idUsuario` (`idUsuario`);
 
 --
--- Índices de tabela `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idUsuario`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `agendamentos`
+-- AUTO_INCREMENT for table `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `idAgendamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idAgendamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
--- AUTO_INCREMENT de tabela `amigos`
+-- AUTO_INCREMENT for table `amigos`
 --
 ALTER TABLE `amigos`
-  MODIFY `idAmizade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `idAmizade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT de tabela `jogos`
+-- AUTO_INCREMENT for table `jogos`
 --
 ALTER TABLE `jogos`
-  MODIFY `idJogo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idJogo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de tabela `participantes`
+-- AUTO_INCREMENT for table `participantes`
 --
 ALTER TABLE `participantes`
-  MODIFY `idParticipante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idParticipante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- Restrições para tabelas despejadas
+-- Constraints for dumped tables
 --
 
 --
--- Restrições para tabelas `agendamentos`
+-- Constraints for table `agendamentos`
 --
 ALTER TABLE `agendamentos`
   ADD CONSTRAINT `agendamentos_ibfk_1` FOREIGN KEY (`usuarioCriador`) REFERENCES `usuarios` (`idUsuario`),
   ADD CONSTRAINT `agendamentos_ibfk_2` FOREIGN KEY (`idJogo`) REFERENCES `jogos` (`idJogo`);
 
 --
--- Restrições para tabelas `amigos`
+-- Constraints for table `amigos`
 --
 ALTER TABLE `amigos`
-  ADD CONSTRAINT `amigos_ibfk_1` FOREIGN KEY (`IdCriador`) REFERENCES `usuarios` (`idUsuario`),
-  ADD CONSTRAINT `amigos_ibfk_2` FOREIGN KEY (`IdDestino`) REFERENCES `usuarios` (`idUsuario`);
+  ADD CONSTRAINT `amigos_ibfk_1` FOREIGN KEY (`IdCriador`) REFERENCES `usuarios` (`IdUsuario`),
+  ADD CONSTRAINT `amigos_ibfk_2` FOREIGN KEY (`IdDestino`) REFERENCES `usuarios` (`IdUsuario`);
+
+--
+-- Constraints for table `participantes`
+--
+ALTER TABLE `participantes`
+  ADD CONSTRAINT `participantes_ibfk_1` FOREIGN KEY (`idAgendamento`) REFERENCES `agendamentos` (`idAgendamento`),
+  ADD CONSTRAINT `participantes_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`);
+
+DELIMITER $$
+--
+-- Events
+--
+CREATE DEFINER=`root`@`localhost` EVENT `verifica_agendamentos` ON SCHEDULE EVERY 1 MINUTE STARTS '2023-11-02 23:04:35' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+  DECLARE data_atual DATETIME;
+  SET data_atual = NOW();
+  UPDATE agendamentos
+  SET status = 2
+  WHERE terminaEm < data_atual;
+END$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

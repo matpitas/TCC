@@ -11,7 +11,7 @@ const addParticipante = async (dados) => {
 
 const getParticipantes = async (body) => {
     const { idAgendamento } = body
-    const query = 'SELECT a.usuarioCriador, u.nome, u.avatar FROM participantes p, agendamentos a, usuarios u WHERE p.idAgendamento = a.idAgendamento and u.idUsuario = p.idUsuario and a.idAgendamento = ? '
+    const query = 'SELECT a.usuarioCriador, u.nome, u.avatar FROM participantes p, agendamentos a, usuarios u WHERE p.idAgendamento = a.idAgendamento and u.idUsuario = p.idUsuario and a.idAgendamento = ? and p.status = 1 '
 
     const [createParticipant] = await connection.execute(query,[idAgendamento])
     return createParticipant

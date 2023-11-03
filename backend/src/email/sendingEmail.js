@@ -46,11 +46,11 @@ const sendingEmails = (request, response) => {
             </div>`, // html body
     }
 
-    transport.sendMail(message, (err) => {
-        console.log(err)
-    });
+    // transport.sendMail(message, (err) => {
+    //     console.log(err)
+    // });
 
-    return response.status(200).json({msg:message})
+    return response.status(200)
 }
 
 module.exports = {
