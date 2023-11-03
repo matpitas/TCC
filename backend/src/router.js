@@ -12,6 +12,7 @@ const friendsController = require('./controller/AmigosController')
 const gamesController = require('./controller/JogosController')
 const schedulingController = require('./controller/AgendamentoController')
 const participantController = require('./controller/ParticipantesController')
+const emailSender = require('./email/sendingEmail')
 
 router.get("/", (require, response) => {
     response.send("oopioio")
@@ -33,7 +34,7 @@ router.post("/friends/create", friendsController.addAmigoController)
 router.post("/friends/verify", friendsController.verifyAmigosController)
 router.post("/friends/list", friendsController.listAmigosController)
 router.post("/friends/request", friendsController.listRequestController)
-router.get("/friends/request/accept/:id", friendsController.AcceptRequestController)
+router.post("/friends/request/response/:id", friendsController.AcceptRequestController)
 
 // Rota de Jogos
 router.get("/game", gamesController.getAllJogosController)
@@ -52,6 +53,10 @@ router.post("/participant", participantController.getParticipantesController)
 router.get("/participant/schedule/:id", participantController.getSchedulingByParticipantsController)
 router.get("/participant/schedule/pending/:id", participantController.getPendingSchedulingByParticipantsController)
 router.put("/participant/schedule/response/:id", participantController.putPendingSchedulingController)
+
+// Rota de Envio de E-mail
+router.post("/sending/email", emailSender.sendingEmails)
+
 
 module.exports = router
 

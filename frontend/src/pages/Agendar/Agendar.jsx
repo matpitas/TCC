@@ -18,6 +18,8 @@ const Agendar = () => {
   const [horarioInicio, setHorarioInicio] = useState("")
   const [horarioTermino, setHorarioTermino] = useState("")
   const idSession = Cookies.get('id')
+  const nomeSession = Cookies.get('nome')
+  const emailSession = Cookies.get('email')
 
   
   
@@ -83,9 +85,29 @@ const Agendar = () => {
 
     const selectedFriends = friendList.filter((friend) => friend?.isSelected)
 
-    if(selectedFriends.length < 3){
+    const dateNow = new Date()
+    const hora1 = new Date(horarioInicio)
+    const hora2 = new Date(horarioTermino)
+
+    if(hora1 < dateNow || hora2 < dateNow){
+      return toast.error("Data inválida", {
+        position: "bottom-right",
+        autoClose: 5000,
+        theme: "dark",
+      });
+    }
+
+    if(hora1 > hora2){
+      return toast.error("Data inválida", {
+        position: "bottom-right",
+        autoClose: 5000,
+        theme: "dark",
+      });
+    }
+
+    if(selectedFriends.length < 2 || selectedFriends.length > 3){
       
-      return toast.error("Número de Participantes Insuficientes", {
+      return toast.error("Número de Participantes Insuficientes ou a mais", {
         position: "bottom-right",
         autoClose: 5000,
         theme: "dark",
@@ -146,8 +168,24 @@ const Agendar = () => {
           });
       })
 
+    const JogoEscolhido = gameList.find((game) => {
+        return game.idJogo == jogos
+    })
     
-    
+    const nomeDoJogo = JogoEscolhido.nomeJogo
+
+    await axios({
+      method: "post",
+      url: "http://localhost:3333/sending/email",
+      data: {
+        horarioInicio,
+        horarioTermino,
+        selectedFriends,
+        nomeDoJogo,
+        nomeSession,
+        emailSession
+      }
+    }).then((response) => {console.log(response.data)})
 
 
   }

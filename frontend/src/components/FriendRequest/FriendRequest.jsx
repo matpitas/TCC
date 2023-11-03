@@ -35,11 +35,31 @@ const FriendRequest = ({idAmigo,idAmizade}) => {
   const handleAcceptReq = async (e) => {
     e.preventDefault()
     axios({
-      method: "get",
-      url: "http://localhost:3333/friends/request/accept/" + idAmizade,
+      method: "post",
+      url: "http://localhost:3333/friends/request/response/" + idAmizade,
+      data: {
+        status: 1
+      }
     }).then((response) => {
         if(response.data) {
           toast.success("Solicitação de Amizade Aceita!")
+        }
+        
+    })
+
+  }
+
+  const handleRecuseReq = async (e) => {
+    e.preventDefault()
+    axios({
+      method: "post",
+      url: "http://localhost:3333/friends/request/response/" + idAmizade,
+      data: {
+        status: 2
+      }
+    }).then((response) => {
+        if(response.data) {
+          toast.error("Solicitação de Amizade Recusada!")
         }
         
     })
@@ -58,7 +78,7 @@ const FriendRequest = ({idAmigo,idAmizade}) => {
         </div>
         <div className={styles.buttonsFriendR}>
             <button onClick={(e) => handleAcceptReq(e)}><AiOutlineCheck /></button>
-            <button><AiOutlineClose /></button>
+            <button onClick={(e) => handleRecuseReq(e)}><AiOutlineClose /></button>
         </div>
     </div>
   )

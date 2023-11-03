@@ -22,7 +22,7 @@ const listRequestController = async (request, response) => {
 
 const AcceptRequestController = async (request, response) => {
     const { id } = request.params
-    const amiz = await amigosModel.AcceptRequest(id)
+    const amiz = await amigosModel.AcceptRequest(request.body,id)
     return response.status(200).json(amiz)
 }
 

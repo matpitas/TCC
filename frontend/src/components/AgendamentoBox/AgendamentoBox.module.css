@@ -1,0 +1,86 @@
+.agendamentoBoxContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 30%;
+    width: 30%;
+    background-color: #282852;
+    border-radius: 8px;
+    margin-top: 2%;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.agendamentoBoxStatus{
+    width: 100%;
+    padding: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.agendamentoBoxStatus p{
+    font-size: 1.2rem;
+    background-color: rgb(110, 181, 110);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: rgb(16, 83, 16);
+
+}
+
+.agendamentoBoxNotStatus p{
+    font-size: 1.2rem;
+    background-color: rgb(181, 110, 110);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: rgb(83, 16, 16);
+}
+
+.agendamentoBoxJogo{
+    width: 100%;
+    padding: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.agendamentoBoxJogo p{
+    font-size: 2rem;
+    word-break: keep-all;
+    text-align: center;
+    font-weight: bold;
+    color: #9ca4c2;
+    text-transform: capitalize;
+
+}
+
+.agendamentoBoxDia{
+    width: 100%;
+    padding: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.agendamentoBoxDia p{
+    font-size: 4rem;
+    font-weight: bold;
+    color: #8f87ca;
+}
+
+.agendamentoBoxHorario{
+    width: 100%;
+    padding: 10px;
+    
+    color: #8f87ca; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 300;
+}

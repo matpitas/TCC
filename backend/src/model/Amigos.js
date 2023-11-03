@@ -22,8 +22,8 @@ const verifyAmigos = async (friends) => {
 
 const listAmigos = async (idUser) => {
     const { id } = idUser
-    const sql = "SELECT if(a.idCriador=?, u.idUsuario, x.idUsuario) idAmigo,if(a.idCriador=?, u.nome, x.nome) as nome, if(a.idCriador=?, u.avatar, x.avatar) as avatar FROM amigos a LEFT JOIN usuarios u ON u.idUsuario = a.idDestino LEFT JOIN usuarios x ON x.idUsuario = a.idCriador WHERE a.status = 1 AND (a.idCriador = ? OR a.idDestino = ?);"
-    const [friend] = await connection.execute(sql, [id,id,id,id,id])
+    const sql = "SELECT if(a.idCriador=?, u.email, x.email) email, if(a.idCriador=?, u.idUsuario, x.idUsuario) idAmigo,if(a.idCriador=?, u.nome, x.nome) as nome, if(a.idCriador=?, u.avatar, x.avatar) as avatar FROM amigos a LEFT JOIN usuarios u ON u.idUsuario = a.idDestino LEFT JOIN usuarios x ON x.idUsuario = a.idCriador WHERE a.status = 1 AND (a.idCriador = ? OR a.idDestino = ?);"
+    const [friend] = await connection.execute(sql, [id,id,id,id,id,id])
     return friend
 }
 
@@ -34,9 +34,16 @@ const listRequest = async (idUser) => {
     return friend
 }
 
-const AcceptRequest = async (idAmizade) => {
-    const sql = "UPDATE amigos SET status = 1 WHERE idAmizade = ?"
-    const [amizade] = await connection.execute(sql, [idAmizade])
+const AcceptRequest = async (body, idAmizade) => {
+    const { status } = body
+    
+    if(status == 2){
+        const sql = "DELETE FROM amigos WHERE idAmizade = ?"
+        const [deletion] = await connection.execute(sql, [idAmizade])
+        return deletion
+    }
+    const sql = "UPDATE amigos SET status = ? WHERE idAmizade = ?"
+    const [amizade] = await connection.execute(sql, [status,idAmizade])
     return amizade
 }
 

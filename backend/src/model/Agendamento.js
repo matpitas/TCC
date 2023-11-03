@@ -11,9 +11,9 @@ const addAgendamento = async (dados) => {
 }
 
 const getAgendamentoById = async (id) => {
-    const query = 'SELECT * FROM agendamentos a, jogos j WHERE a.idJogo = j.idJogo and a.usuarioCriador = ? '
+    const query = 'SELECT * FROM agendamentos a, jogos j, participantes p WHERE a.idJogo = j.idJogo and p.`idAgendamento` = a.`idAgendamento` and (a.usuarioCriador = ?  or p.`idUsuario` = ?) and a.iniciaEm > NOW() GROUP BY a.idAgendamento ORDER BY a.iniciaEm ASC'
 
-    const [createdAgendamento] = await connection.execute(query,[id])
+    const [createdAgendamento] = await connection.execute(query,[id, id])
     return createdAgendamento
 }
 

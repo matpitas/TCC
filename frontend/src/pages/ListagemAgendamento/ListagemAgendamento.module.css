@@ -1,0 +1,19 @@
+.todosAgendamentos{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.todosAgendamentos h1{
+    text-align: center;
+    font-weight: 400;
+    color: #f6f6f6;
+}
+
+.gridAgendamentosUsuario{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    padding: 2%;
+}

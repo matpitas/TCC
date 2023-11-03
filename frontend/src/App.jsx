@@ -18,6 +18,7 @@ import useAuthContext from './Hooks/useAuthContext'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import BuscaAmigos from './pages/BuscaAmigos/BuscaAmigos'
+import ListagemAgendamento from './pages/ListagemAgendamento/ListagemAgendamento'
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
               <Route path="/cadastrar" element={!login ? <Cadastrar /> : <Navigate to='/'/>}/>
               <Route path="/agendamento" element={login ? <Agendar /> : <Navigate to='/'/>}/>
               <Route path="/buscaamigos" element={login ? <BuscaAmigos /> : <Navigate to='/'/>}/>
+              <Route path="/listaagendamentos" element={login ? <ListagemAgendamento /> : <Navigate to='/'/>}/>
             </Routes>
             <ToastContainer
               position="bottom-right"
