@@ -15,6 +15,7 @@
     width: 100%;
     padding: 10px;
     
+    gap: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,6 +38,15 @@
     border-radius: 5px;
     font-weight: bold;
     color: rgb(83, 16, 16);
+}
+
+.agendamentoFinishedBoxStatus{
+    font-size: 1.2rem;
+    background-color: rgb(181, 176, 110);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: rgb(83, 81, 16);
 }
 
 .agendamentoBoxJogo{
@@ -83,4 +93,22 @@
     justify-content: center;
     font-size: 1.2rem;
     font-weight: 300;
+}
+
+.deleting{
+    font-size: 1rem;
+    background-color: rgb(181, 110, 110);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: rgb(83, 27, 16);
+    cursor: pointer;
+}
+
+.realized{
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: rgb(218, 153, 140);
 }

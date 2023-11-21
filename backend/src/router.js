@@ -15,7 +15,7 @@ const participantController = require('./controller/ParticipantesController')
 const emailSender = require('./email/sendingEmail')
 
 router.get("/", (require, response) => {
-    response.send("oopioio")
+    response.send("Root Application.")
 })
 
 
@@ -43,9 +43,11 @@ router.post("/game/create", upload.single('imagemJogo'), gamesController.addJogo
 // Rota de Agendamento
 router.post("/scheduling/create", schedulingController.addAgendamentoController)
 router.get("/scheduling/:id", schedulingController.getAgendamentoByIdController)
+router.get("/scheduling/finished/:id", schedulingController.getFinishedAgendamentoByIdController)
 router.get("/scheduling/next/:id", schedulingController.getNearAgendamentoByIdController)
 router.get("/scheduling/last/:id", schedulingController.getLastAgendamentoByIdController)
 router.get("/scheduling/verify/:id", schedulingController.verifyStatusAgendamentoController)
+router.post("/scheduling/delete/:id", schedulingController.deleteAgendamentoController)
 
 // Rota de Participante
 router.post("/participant/create", participantController.addParticipantesController)

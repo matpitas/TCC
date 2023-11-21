@@ -11,6 +11,12 @@ const getAgendamentoByIdController = async (request, response) => {
     return response.status(200).json(agendamento)
 }
 
+const getFinishedAgendamentoByIdController = async (request, response) => {
+    const { id } = request.params
+    const agendamento = await AgendamentoModel.getFinishedAgendamentoById(id)
+    return response.status(200).json(agendamento)
+}
+
 const getNearAgendamentoByIdController = async (request, response) => {
     const { id } = request.params
     const agendamento = await AgendamentoModel.getNearAgendamentoById(id)
@@ -29,6 +35,12 @@ const verifyStatusAgendamentoController = async (request, response) => {
     return response.status(200).json(agendamento)
 }
 
+const deleteAgendamentoController = async (request, response) => {
+    const { id } = request.params
+    const agendamento = await AgendamentoModel.deleteAgendamento(id, request.body)
+    return response.status(200).json(agendamento)
+}
+
 
 module.exports = {
     addAgendamentoController,
@@ -36,4 +48,6 @@ module.exports = {
     getNearAgendamentoByIdController,
     getLastAgendamentoByIdController,
     verifyStatusAgendamentoController,
+    deleteAgendamentoController,
+    getFinishedAgendamentoByIdController,
 }

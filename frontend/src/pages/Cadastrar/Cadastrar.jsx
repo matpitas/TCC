@@ -75,11 +75,11 @@ const Cadastrar = () => {
       <div className={styles.passwordGrid}>
         <div className={styles.inputContainer}>
           <label className={styles.label}>Senha</label>
-          <input type="text" placeholder='******' className={styles.input} value={senha} onChange={(e) => setSenha(e.target.value)} />
+          <input type="password" placeholder='******' className={styles.input} value={senha} onChange={(e) => setSenha(e.target.value)} />
         </div>
         <div className={styles.inputContainer}>
           <label className={styles.label}>Confirmar Senha</label>
-          <input type="text" placeholder='******' className={styles.input} value={conSenha} onChange={(e) => setConSenha(e.target.value)} />
+          <input type="password" placeholder='******' className={styles.input} value={conSenha} onChange={(e) => setConSenha(e.target.value)} />
         </div>
       </div>
       <div className={styles.inputContainer}>
