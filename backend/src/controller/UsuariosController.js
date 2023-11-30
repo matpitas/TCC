@@ -1,5 +1,9 @@
 const connection = require('../model/connection')
 const userModel = require('../model/Usuario')
+const crypto = require('crypto')
+
+const utilities = require('../utilities/utilities')
+
 
 const getAllUsersController = async (_request, response) => {
     const users = await userModel.getAllUsers()
@@ -26,9 +30,18 @@ const authUserLoginController = async (request, response) => {
 const addUserController = async (request, response) => {
     const { filename } = request.file
     let { avatar } = request.body
-    const { nome,email,senha } = request.body
+    const { nome,email } = request.body
+    let { senha } = request.body
     avatar = filename
-    const newUser = { nome, email, senha, avatar }
+    
+    const senhaCriptografada = await utilities.encryptPassword(senha)
+    .then(cryptoPassword => {
+        return cryptoPassword
+    })
+    .catch(error => {
+        console.error('Nao foi possivel criptografar', error)
+    })
+    const newUser = { nome, email, senhaCriptografada, avatar }
     const userCreate = await userModel.addUser(newUser)
     return response.status(201).json(userCreate)
 }
